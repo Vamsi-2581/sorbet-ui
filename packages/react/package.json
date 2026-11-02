@@ -1,15 +1,15 @@
 {
-  "name": "@smug-ui/react",
+  "name": "@sorbet-ui/react",
   "version": "0.1.0",
   "description": "React components built on Material UI v7 with one variant, color and size API.",
-  "homepage": "https://github.com/tahmidbintaslim/sun-ui#readme",
+  "homepage": "https://github.com/tahmidbintaslim/sorbet-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tahmidbintaslim/sun-ui.git",
+    "url": "git+https://github.com/tahmidbintaslim/sorbet-ui.git",
     "directory": "packages/react"
   },
   "bugs": {
-    "url": "https://github.com/tahmidbintaslim/sun-ui/issues"
+    "url": "https://github.com/tahmidbintaslim/sorbet-ui/issues"
   },
   "keywords": [
     "react",
@@ -55,9 +55,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@smug-ui/core": "workspace:*",
-    "@smug-ui/theme": "workspace:*",
-    "@smug-ui/tokens": "workspace:*"
+    "@sorbet-ui/core": "workspace:*",
+    "@sorbet-ui/theme": "workspace:*",
+    "@sorbet-ui/tokens": "workspace:*"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",

@@ -14,7 +14,7 @@ const meta: Meta<typeof Progress> = {
     docs: {
       description: {
         component: `
-Progress indicators show the status of ongoing processes. Sun UI provides both linear and circular variants with 5 visual styles.
+Progress indicators show the status of ongoing processes. Sorbet UI provides both linear and circular variants with 5 visual styles.
 
 ## Features
 - **Two types**: Linear and circular progress indicators
@@ -24,7 +24,7 @@ Progress indicators show the status of ongoing processes. Sun UI provides both l
 - **Determinate & Indeterminate**: Show exact progress or loading state
 - **Labels**: Optional value labels with custom formatting
 - **Buffer**: Linear progress supports buffer indicator
-- **Accessible**: Full ARIA support via @smug-ui/core primitives
+- **Accessible**: Full ARIA support via @sorbet-ui/core primitives
         `,
       },
     },

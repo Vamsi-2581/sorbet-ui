@@ -1,5 +1,5 @@
 /**
- * Sun UI Shared Types
+ * Sorbet UI Shared Types
  *
  * Common type definitions used across all components
  */
@@ -7,20 +7,20 @@
 import type { CSSProperties } from 'react';
 
 /**
- * Variant presets - The 5 standard Sun UI variants
+ * Variant presets - The 5 standard Sorbet UI variants
  * These are the core branded presets available across all components
  */
-export type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+export type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
 
 /**
  * Extended variants for Button component (includes additional link-style variants)
  */
-export type SunButtonVariant = SunVariant | 'dash' | 'link';
+export type SorbetButtonVariant = SorbetVariant | 'dash' | 'link';
 
 /**
  * Semantic colors - 7 color schemes for all components
  */
-export type SunColor =
+export type SorbetColor =
   | 'primary'
   | 'secondary'
   | 'success'
@@ -32,12 +32,12 @@ export type SunColor =
 /**
  * Component sizes
  */
-export type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 /**
  * Positions for tooltips, popovers, etc.
  */
-export type SunPlacement =
+export type SorbetPlacement =
   | 'top'
   | 'top-start'
   | 'top-end'
@@ -54,12 +54,12 @@ export type SunPlacement =
 /**
  * Anchor positions for drawers
  */
-export type SunAnchor = 'top' | 'bottom' | 'left' | 'right';
+export type SorbetAnchor = 'top' | 'bottom' | 'left' | 'right';
 
 /**
  * Common component states
  */
-export interface SunStateProps {
+export interface SorbetStateProps {
   /** Whether the component is disabled */
   disabled?: boolean;
   /** Whether the component is in a loading state */
@@ -75,9 +75,9 @@ export interface SunStateProps {
 }
 
 /**
- * Base props for all Sun UI components
+ * Base props for all Sorbet UI components
  */
-export interface SunBaseProps {
+export interface SorbetBaseProps {
   /** Unique identifier for the component */
   id?: string;
   /** Additional CSS class names */
@@ -91,19 +91,19 @@ export interface SunBaseProps {
 /**
  * Props for components that support variants
  */
-export interface SunVariantProps {
+export interface SorbetVariantProps {
   /** Visual variant of the component */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme of the component */
-  color?: SunColor;
+  color?: SorbetColor;
 }
 
 /**
  * Props for components that support sizing
  */
-export interface SunSizeProps {
+export interface SorbetSizeProps {
   /** Size of the component */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Full width mode */
   fullWidth?: boolean;
 }
@@ -111,7 +111,7 @@ export interface SunSizeProps {
 /**
  * Props for interactive components
  */
-export interface SunInteractiveProps extends SunStateProps {
+export interface SorbetInteractiveProps extends SorbetStateProps {
   /** Click handler */
   onClick?: (event: React.MouseEvent) => void;
   /** Focus handler */
@@ -125,7 +125,7 @@ export interface SunInteractiveProps extends SunStateProps {
 /**
  * Props for form components
  */
-export interface SunFormProps extends SunStateProps {
+export interface SorbetFormProps extends SorbetStateProps {
   /** Current value */
   value?: string | number | boolean;
   /** Default value (for uncontrolled mode) */
@@ -145,7 +145,7 @@ export interface SunFormProps extends SunStateProps {
 /**
  * Accessibility props
  */
-export interface SunA11yProps {
+export interface SorbetA11yProps {
   /** ARIA label */
   'aria-label'?: string;
   /** ARIA labelledby reference */
@@ -163,19 +163,19 @@ export interface SunA11yProps {
 /**
  * Icon props for components with icon support
  */
-export interface SunIconProps {
+export interface SorbetIconProps {
   /** Icon to show at the start (left in LTR) */
   startIcon?: React.ReactNode;
   /** Icon to show at the end (right in LTR) */
   endIcon?: React.ReactNode;
   /** Size of the icons */
-  iconSize?: SunSize | number;
+  iconSize?: SorbetSize | number;
 }
 
 /**
  * Loading props
  */
-export interface SunLoadingProps {
+export interface SorbetLoadingProps {
   /** Whether component is in loading state */
   loading?: boolean;
   /** Custom loading indicator */
@@ -187,7 +187,7 @@ export interface SunLoadingProps {
 /**
  * Animation props
  */
-export interface SunAnimationProps {
+export interface SorbetAnimationProps {
   /** Disable all animations */
   disableAnimation?: boolean;
   /** Entrance animation */
@@ -199,18 +199,18 @@ export interface SunAnimationProps {
 }
 
 /**
- * Common combined props for Sun UI components
+ * Common combined props for Sorbet UI components
  */
-export interface SunComponentProps
-  extends SunBaseProps, SunVariantProps, SunSizeProps, SunA11yProps {}
+export interface SorbetComponentProps
+  extends SorbetBaseProps, SorbetVariantProps, SorbetSizeProps, SorbetA11yProps {}
 
 /**
- * Combined props for interactive Sun UI components
+ * Combined props for interactive Sorbet UI components
  */
-export interface SunInteractiveComponentProps
-  extends SunComponentProps, SunInteractiveProps, SunIconProps, SunLoadingProps {}
+export interface SorbetInteractiveComponentProps
+  extends SorbetComponentProps, SorbetInteractiveProps, SorbetIconProps, SorbetLoadingProps {}
 
 /**
- * Combined props for form Sun UI components
+ * Combined props for form Sorbet UI components
  */
-export interface SunFormComponentProps extends SunComponentProps, SunFormProps, SunIconProps {}
+export interface SorbetFormComponentProps extends SorbetComponentProps, SorbetFormProps, SorbetIconProps {}

@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { getColorScale, getVariantCss, getVariantStyles } from '@smug-ui/core';
-import { colorScaleForMode, textColors } from '@smug-ui/tokens';
+import { getColorScale, getVariantCss, getVariantStyles } from '@sorbet-ui/core';
+import { colorScaleForMode, textColors } from '@sorbet-ui/tokens';
 import { cleanup, render, screen } from '@testing-library/react';
 import { beforeAll, describe, expect, it } from 'vitest';
 

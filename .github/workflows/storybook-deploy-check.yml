@@ -1,4 +1,4 @@
-# Sun UI - Deployed Storybook check
+# Sorbet UI - Deployed Storybook check
 #
 # Vercel builds and hosts the Storybook (vercel.json); this workflow does not deploy.
 # After each successful Production deployment, and once a week, it checks that the
@@ -43,4 +43,4 @@ jobs:
       - name: Check the public Storybook
         run: node scripts/check-deployed-storybook.mjs
         env:
-          STORYBOOK_URL: ${{ vars.STORYBOOK_URL || 'https://sun-ui-brown.vercel.app' }}
+          STORYBOOK_URL: ${{ vars.STORYBOOK_URL || 'https://sorbet-ui.vercel.app' }}

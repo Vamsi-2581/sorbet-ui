@@ -1,10 +1,10 @@
 /**
- * Sun UI Core - Pagination Primitives
+ * Sorbet UI Core - Pagination Primitives
  *
  * Headless pagination utilities and types for building accessible pagination controls.
  */
 
-import type { SunColor, SunSize, SunVariant } from '../types';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '../types';
 
 // =============================================================================
 // TYPES
@@ -33,11 +33,11 @@ export interface PaginationProps {
   /** Current page (1-indexed) */
   page: number;
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Number of sibling pages to show */
   siblingCount?: number;
   /** Number of boundary pages to show */

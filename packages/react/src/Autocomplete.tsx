@@ -317,7 +317,7 @@ export interface AutocompleteOption {
   description?: string;
 }
 
-export interface SunAutocompleteProps<
+export interface SorbetAutocompleteProps<
   T = AutocompleteOption,
   Multiple extends boolean | undefined = false,
   DisableClearable extends boolean | undefined = false,
@@ -360,7 +360,7 @@ function AutocompleteInner<
   DisableClearable extends boolean | undefined = false,
   FreeSolo extends boolean | undefined = false,
 >(
-  props: SunAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
+  props: SorbetAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   const {
@@ -492,7 +492,7 @@ export const Autocomplete = React.forwardRef(AutocompleteInner) as <
   DisableClearable extends boolean | undefined = false,
   FreeSolo extends boolean | undefined = false,
 >(
-  props: SunAutocompleteProps<T, Multiple, DisableClearable, FreeSolo> & {
+  props: SorbetAutocompleteProps<T, Multiple, DisableClearable, FreeSolo> & {
     ref?: React.ForwardedRef<HTMLDivElement>;
   }
 ) => React.ReactElement;

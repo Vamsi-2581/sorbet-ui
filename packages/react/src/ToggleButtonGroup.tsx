@@ -5,7 +5,7 @@ import MuiToggleButtonGroup, {
   ToggleButtonGroupProps as MuiToggleButtonGroupProps,
 } from '@mui/material/ToggleButtonGroup';
 import { styled } from '@mui/material/styles';
-import type { SunColor, SunSize, SunVariant } from '@smug-ui/core';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '@sorbet-ui/core';
 import {
   colors,
   ColorScale,
@@ -13,16 +13,16 @@ import {
   radius,
   textColorsForMode,
   transitions,
-} from '@smug-ui/tokens';
+} from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type ToggleButtonGroupVariant = SunVariant;
-export type ToggleButtonGroupColor = SunColor;
-export type ToggleButtonGroupSize = SunSize;
+export type ToggleButtonGroupVariant = SorbetVariant;
+export type ToggleButtonGroupColor = SorbetColor;
+export type ToggleButtonGroupSize = SorbetSize;
 
 export interface ToggleButtonGroupProps extends Omit<MuiToggleButtonGroupProps, 'color' | 'size'> {
   /** Visual style variant */

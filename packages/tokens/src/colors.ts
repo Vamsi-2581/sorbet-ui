@@ -1,5 +1,5 @@
 /**
- * Sun UI Color System
+ * Sorbet UI Color System
  *
  * A comprehensive color palette supporting:
  * - Semantic colors (primary, secondary, success, warning, danger, info)
@@ -41,7 +41,7 @@ export type SemanticColor =
   | 'neutral';
 
 /**
- * Sun UI Brand Colors
+ * Sorbet UI Brand Colors
  * Primary: Sky Blue (Sun-inspired warmth meets modern tech)
  *
  * Components use `main` both as a solid background (with `contrastText`) and as

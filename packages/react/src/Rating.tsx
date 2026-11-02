@@ -4,18 +4,18 @@ import Box from '@mui/material/Box';
 import MuiRating, { RatingProps as MuiRatingProps } from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import type { SunColor, SunSize, SunVariant } from '@smug-ui/core';
-import { getDefaultRatingLabel } from '@smug-ui/core';
-import { colors, ColorScale, transitions } from '@smug-ui/tokens';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '@sorbet-ui/core';
+import { getDefaultRatingLabel } from '@sorbet-ui/core';
+import { colors, ColorScale, transitions } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type RatingVariant = SunVariant;
-export type RatingColor = SunColor;
-export type RatingSize = SunSize;
+export type RatingVariant = SorbetVariant;
+export type RatingColor = SorbetColor;
+export type RatingSize = SorbetSize;
 
 export interface RatingProps extends Omit<MuiRatingProps, 'color' | 'size'> {
   /** Visual style variant */

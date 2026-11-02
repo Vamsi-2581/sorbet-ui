@@ -1,7 +1,7 @@
 /**
- * Sun UI Design Tokens
+ * Sorbet UI Design Tokens
  *
- * Colors, sizing, typography and animation tokens used by the Sun UI
+ * Colors, sizing, typography and animation tokens used by the Sorbet UI
  * components and themes.
  */
 

@@ -22,17 +22,17 @@ import {
   Palette as PaletteIcon,
   Speed as SpeedIcon,
 } from '@mui/icons-material';
-import { lightTheme, darkTheme } from '@smug-ui/theme';
+import { lightTheme, darkTheme } from '@sorbet-ui/theme';
 import {
-  Button as SunButton,
-  Card as SunCard,
+  Button as SorbetButton,
+  Card as SorbetCard,
   Badge,
-  Chip as SunChip,
-  Avatar as SunAvatar,
+  Chip as SorbetChip,
+  Avatar as SorbetAvatar,
   Alert,
   Progress,
   Rating,
-} from '@smug-ui/react';
+} from '@sorbet-ui/react';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -62,15 +62,15 @@ function App() {
           >
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
-                Sun UI
+                Sorbet UI
               </Typography>
               <Stack direction="row" spacing={2} alignItems="center">
-                <Button color="inherit" href="https://sun-ui-brown.vercel.app" target="_blank">
+                <Button color="inherit" href="https://sorbet-ui.vercel.app" target="_blank">
                   Storybook
                 </Button>
                 <IconButton
                   color="inherit"
-                  href="https://github.com/tahmidbintaslim/sun-ui"
+                  href="https://github.com/tahmidbintaslim/sorbet-ui"
                   target="_blank"
                 >
                   <GitHubIcon />
@@ -100,33 +100,33 @@ function App() {
                     gutterBottom
                     sx={{ fontWeight: 'bold' }}
                   >
-                    One variant API
+                    Material UI,
                     <br />
-                    for Material UI
+                    but softer
                   </Typography>
                   <Typography variant="h5" color="text.secondary" paragraph>
-                    26 React components built on Material UI v7, sharing one variant, color and size
-                    API, with design tokens and light and dark themes.
+                    Soft, ghost and plain variants for 26 Material UI v7 components, with one variant,
+                    color and size API and light and dark themes.
                   </Typography>
                   <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
                     <Button
                       variant="contained"
                       color="primary"
-                      href="https://sun-ui-brown.vercel.app"
+                      href="https://sorbet-ui.vercel.app"
                       target="_blank"
                       sx={{ borderRadius: 2, px: 3, py: 1.5 }}
                     >
-                      Get Started
+                      Browse components
                     </Button>
                     <Button
                       variant="outlined"
                       color="primary"
-                      href="https://github.com/tahmidbintaslim/sun-ui"
+                      href="https://github.com/tahmidbintaslim/sorbet-ui"
                       target="_blank"
                       startIcon={<GitHubIcon />}
                       sx={{ borderRadius: 2, px: 3, py: 1.5 }}
                     >
-                      GitHub
+                      Star on GitHub
                     </Button>
                   </Stack>
                 </Grid>
@@ -139,31 +139,31 @@ function App() {
                       gap: 2,
                     }}
                   >
-                    <SunCard variant="outlined" sx={{ p: 3, width: '100%', maxWidth: 400 }}>
+                    <SorbetCard variant="outlined" sx={{ p: 3, width: '100%', maxWidth: 400 }}>
                       <Stack spacing={2}>
-                        <SunButton variant="solid" color="primary" fullWidth>
+                        <SorbetButton variant="solid" color="primary" fullWidth>
                           Primary Button
-                        </SunButton>
-                        <SunButton variant="soft" color="success" fullWidth>
+                        </SorbetButton>
+                        <SorbetButton variant="soft" color="success" fullWidth>
                           Success Button
-                        </SunButton>
-                        <SunButton variant="outlined" color="warning" fullWidth>
+                        </SorbetButton>
+                        <SorbetButton variant="outlined" color="warning" fullWidth>
                           Warning Button
-                        </SunButton>
+                        </SorbetButton>
                       </Stack>
-                    </SunCard>
-                    <SunCard
+                    </SorbetCard>
+                    <SorbetCard
                       variant="soft"
                       color="secondary"
                       sx={{ p: 3, width: '100%', maxWidth: 400 }}
                     >
                       <Stack direction="row" spacing={1} flexWrap="wrap">
-                        <SunChip variant="solid" color="primary" label="React" />
-                        <SunChip variant="soft" color="success" label="TypeScript" />
-                        <SunChip variant="outlined" color="warning" label="MUI v7" />
-                        <SunChip variant="ghost" color="info" label="Dark mode" />
+                        <SorbetChip variant="solid" color="primary" label="React" />
+                        <SorbetChip variant="soft" color="success" label="TypeScript" />
+                        <SorbetChip variant="outlined" color="warning" label="MUI v7" />
+                        <SorbetChip variant="ghost" color="info" label="Dark mode" />
                       </Stack>
-                    </SunCard>
+                    </SorbetCard>
                   </Box>
                 </Grid>
               </Grid>
@@ -181,7 +181,7 @@ function App() {
                 gutterBottom
                 sx={{ fontWeight: 'bold', mb: 6 }}
               >
-                Why Sun UI?
+                Why Sorbet UI?
               </Typography>
               <Grid container spacing={4}>
                 {[
@@ -207,7 +207,7 @@ function App() {
                     icon: <DarkIcon sx={{ fontSize: 40 }} />,
                     title: 'Light and dark themes',
                     description:
-                      'lightTheme and darkTheme for the MUI ThemeProvider, built from the Sun UI tokens.',
+                      'lightTheme and darkTheme for the MUI ThemeProvider, built from the Sorbet UI tokens.',
                   },
                 ].map((feature, index) => (
                   <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
@@ -257,28 +257,28 @@ function App() {
               </Typography>
               <Grid container spacing={4}>
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <SunCard variant="outlined" sx={{ p: 3 }}>
+                  <SorbetCard variant="outlined" sx={{ p: 3 }}>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                       Buttons
                     </Typography>
                     <Stack direction="row" spacing={1} flexWrap="wrap">
-                      <SunButton variant="solid" color="primary" size="sm">
+                      <SorbetButton variant="solid" color="primary" size="sm">
                         Solid
-                      </SunButton>
-                      <SunButton variant="soft" color="success" size="sm">
+                      </SorbetButton>
+                      <SorbetButton variant="soft" color="success" size="sm">
                         Soft
-                      </SunButton>
-                      <SunButton variant="outlined" color="warning" size="sm">
+                      </SorbetButton>
+                      <SorbetButton variant="outlined" color="warning" size="sm">
                         Outlined
-                      </SunButton>
-                      <SunButton variant="ghost" color="danger" size="sm">
+                      </SorbetButton>
+                      <SorbetButton variant="ghost" color="danger" size="sm">
                         Ghost
-                      </SunButton>
+                      </SorbetButton>
                     </Stack>
-                  </SunCard>
+                  </SorbetCard>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <SunCard variant="soft" color="secondary" sx={{ p: 3 }}>
+                  <SorbetCard variant="soft" color="secondary" sx={{ p: 3 }}>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                       Form Elements
                     </Typography>
@@ -292,15 +292,15 @@ function App() {
                         This is an info alert
                       </Alert>
                     </Stack>
-                  </SunCard>
+                  </SorbetCard>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <SunCard variant="outlined" sx={{ p: 3 }}>
+                  <SorbetCard variant="outlined" sx={{ p: 3 }}>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                       Data Display
                     </Typography>
                     <Stack direction="row" spacing={2} alignItems="center">
-                      <SunAvatar src="https://i.pravatar.cc/40" />
+                      <SorbetAvatar src="https://i.pravatar.cc/40" />
                       <Box>
                         <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                           John Doe
@@ -310,25 +310,25 @@ function App() {
                         </Typography>
                       </Box>
                       <Badge content="3" color="danger">
-                        <SunButton variant="ghost" size="sm">
+                        <SorbetButton variant="ghost" size="sm">
                           Messages
-                        </SunButton>
+                        </SorbetButton>
                       </Badge>
                     </Stack>
-                  </SunCard>
+                  </SorbetCard>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <SunCard variant="soft" color="primary" sx={{ p: 3 }}>
+                  <SorbetCard variant="soft" color="primary" sx={{ p: 3 }}>
                     <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                       Navigation
                     </Typography>
                     <Stack direction="row" spacing={1} flexWrap="wrap">
-                      <SunChip variant="solid" color="primary" label="Home" />
-                      <SunChip variant="outlined" color="secondary" label="About" />
-                      <SunChip variant="soft" color="success" label="Contact" />
-                      <SunChip variant="ghost" color="info" label="Blog" />
+                      <SorbetChip variant="solid" color="primary" label="Home" />
+                      <SorbetChip variant="outlined" color="secondary" label="About" />
+                      <SorbetChip variant="soft" color="success" label="Contact" />
+                      <SorbetChip variant="ghost" color="info" label="Blog" />
                     </Stack>
-                  </SunCard>
+                  </SorbetCard>
                 </Grid>
               </Grid>
             </Container>
@@ -340,7 +340,7 @@ function App() {
               <Grid container spacing={4}>
                 <Grid size={{ xs: 12, md: 6 }}>
                   <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                    Sun UI
+                    Sorbet UI
                   </Typography>
                   <Typography variant="body2" color="text.secondary" paragraph>
                     React components built on Material UI v7. Open source under the MIT license.
@@ -348,16 +348,16 @@ function App() {
                   <Stack direction="row" spacing={1}>
                     <IconButton
                       color="inherit"
-                      href="https://github.com/tahmidbintaslim/sun-ui"
+                      href="https://github.com/tahmidbintaslim/sorbet-ui"
                       target="_blank"
                     >
                       <GitHubIcon />
                     </IconButton>
                     <IconButton
                       color="inherit"
-                      href="https://github.com/tahmidbintaslim/sun-ui/stargazers"
+                      href="https://github.com/tahmidbintaslim/sorbet-ui/stargazers"
                       target="_blank"
-                      aria-label="Star Sun UI on GitHub"
+                      aria-label="Star Sorbet UI on GitHub"
                     >
                       <StarIcon />
                     </IconButton>
@@ -368,19 +368,19 @@ function App() {
                     Links
                   </Typography>
                   <Stack spacing={1}>
-                    <Button color="inherit" href="https://sun-ui-brown.vercel.app" target="_blank">
+                    <Button color="inherit" href="https://sorbet-ui.vercel.app" target="_blank">
                       Storybook
                     </Button>
                     <Button
                       color="inherit"
-                      href="https://github.com/tahmidbintaslim/sun-ui"
+                      href="https://github.com/tahmidbintaslim/sorbet-ui"
                       target="_blank"
                     >
                       GitHub
                     </Button>
                     <Button
                       color="inherit"
-                      href="https://github.com/tahmidbintaslim/sun-ui/blob/main/DOCUMENTATION.md"
+                      href="https://github.com/tahmidbintaslim/sorbet-ui/blob/main/DOCUMENTATION.md"
                       target="_blank"
                     >
                       Documentation
@@ -390,7 +390,7 @@ function App() {
               </Grid>
               <Box sx={{ mt: 4, pt: 4, borderTop: 1, borderColor: 'divider' }}>
                 <Typography variant="body2" color="text.secondary" align="center">
-                  © 2026 Tahmid Bin Taslim Rafi and Sun UI contributors. MIT license.
+                  © 2026 Tahmid Bin Taslim Rafi and Sorbet UI contributors. MIT license.
                 </Typography>
               </Box>
             </Container>

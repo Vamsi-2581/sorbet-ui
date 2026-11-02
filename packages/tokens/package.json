@@ -1,15 +1,15 @@
 {
-  "name": "@smug-ui/tokens",
+  "name": "@sorbet-ui/tokens",
   "version": "0.1.0",
-  "description": "Design tokens for Sun UI: colors, sizing, typography and animations.",
-  "homepage": "https://github.com/tahmidbintaslim/sun-ui#readme",
+  "description": "Design tokens for Sorbet UI: colors, sizing, typography and animations.",
+  "homepage": "https://github.com/tahmidbintaslim/sorbet-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tahmidbintaslim/sun-ui.git",
+    "url": "git+https://github.com/tahmidbintaslim/sorbet-ui.git",
     "directory": "packages/tokens"
   },
   "bugs": {
-    "url": "https://github.com/tahmidbintaslim/sun-ui/issues"
+    "url": "https://github.com/tahmidbintaslim/sorbet-ui/issues"
   },
   "keywords": [
     "design-tokens",

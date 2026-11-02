@@ -18,11 +18,11 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@smug-ui/tokens": ["packages/tokens/src"],
-      "@smug-ui/theme": ["packages/theme/src"],
-      "@smug-ui/react": ["packages/react/src"],
-      "@smug-ui/icons": ["packages/icons/src"],
-      "@smug-ui/core": ["packages/core/src"]
+      "@sorbet-ui/tokens": ["packages/tokens/src"],
+      "@sorbet-ui/theme": ["packages/theme/src"],
+      "@sorbet-ui/react": ["packages/react/src"],
+      "@sorbet-ui/icons": ["packages/icons/src"],
+      "@sorbet-ui/core": ["packages/core/src"]
     }
   },
   "include": ["vitest.config.ts"]

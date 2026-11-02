@@ -1,32 +1,32 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles';
-import { radiusScale, sunPalette } from '@smug-ui/tokens';
+import { radiusScale, sorbetPalette } from '@sorbet-ui/tokens';
 
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: sunPalette.primary.main,
-      dark: sunPalette.primary.dark,
-      light: sunPalette.primary.light,
+      main: sorbetPalette.primary.main,
+      dark: sorbetPalette.primary.dark,
+      light: sorbetPalette.primary.light,
     },
     secondary: {
-      main: sunPalette.neutral.main,
+      main: sorbetPalette.neutral.main,
     },
     success: {
-      main: sunPalette.success.main,
+      main: sorbetPalette.success.main,
     },
     warning: {
-      main: sunPalette.warning.main,
+      main: sorbetPalette.warning.main,
     },
     error: {
-      main: sunPalette.danger.main,
+      main: sorbetPalette.danger.main,
     },
     background: {
       default: '#ffffff',
       paper: '#ffffff',
     },
     text: {
-      primary: sunPalette.neutral[900],
-      secondary: sunPalette.neutral[500],
+      primary: sorbetPalette.neutral[900],
+      secondary: sorbetPalette.neutral[500],
     },
   },
   shape: {
@@ -48,26 +48,26 @@ export const darkTheme = createTheme({
     ...themeOptions.palette,
     mode: 'dark',
     primary: {
-      main: sunPalette.primary[500],
-      dark: sunPalette.primary[600],
-      light: sunPalette.primary.light,
+      main: sorbetPalette.primary[500],
+      dark: sorbetPalette.primary[600],
+      light: sorbetPalette.primary.light,
     },
     success: {
-      main: sunPalette.success[500],
+      main: sorbetPalette.success[500],
     },
     warning: {
-      main: sunPalette.warning[500],
+      main: sorbetPalette.warning[500],
     },
     error: {
-      main: sunPalette.danger[500],
+      main: sorbetPalette.danger[500],
     },
     background: {
-      default: sunPalette.neutral[900],
-      paper: sunPalette.neutral[800],
+      default: sorbetPalette.neutral[900],
+      paper: sorbetPalette.neutral[800],
     },
     text: {
-      primary: sunPalette.neutral[50],
-      secondary: sunPalette.neutral[400],
+      primary: sorbetPalette.neutral[50],
+      secondary: sorbetPalette.neutral[400],
     },
   },
 });

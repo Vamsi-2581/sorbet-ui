@@ -14,16 +14,16 @@ import {
   Typography,
 } from '@mui/material';
 import { keyframes, styled } from '@mui/material/styles';
-import { colors, colorScaleForMode, radius, typography } from '@smug-ui/tokens';
+import { colors, colorScaleForMode, radius, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface TableColumn<T = unknown> {
   /** Unique column identifier */
@@ -48,11 +48,11 @@ export interface TableProps<T = unknown> extends Omit<MuiTableProps, 'size'> {
   /** Column definitions */
   columns: TableColumn<T>[];
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Enable row selection */
   selectable?: boolean;
   /** Enable sorting */
@@ -121,9 +121,9 @@ const shimmer = keyframes`
 // =============================================================================
 
 interface StyledProps {
-  $variant: SunVariant;
-  $color: SunColor;
-  $size: SunSize;
+  $variant: SorbetVariant;
+  $color: SorbetColor;
+  $size: SorbetSize;
   $striped?: boolean;
   $hoverable?: boolean;
   $loading?: boolean;

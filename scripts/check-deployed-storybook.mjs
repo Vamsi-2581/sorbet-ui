@@ -2,7 +2,7 @@
 // Smoke check for the public Storybook deployment.
 //
 // Usage: node scripts/check-deployed-storybook.mjs [url]
-// The URL defaults to $STORYBOOK_URL, then to https://sun-ui-brown.vercel.app.
+// The URL defaults to $STORYBOOK_URL, then to https://sorbet-ui.vercel.app.
 //
 // It passes when the deployment serves iframe.html and an index.json that
 // lists at least one story for every *.stories.tsx file in packages/react/src.
@@ -16,7 +16,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const baseUrl = (
   process.argv[2] ||
   process.env.STORYBOOK_URL ||
-  'https://sun-ui-brown.vercel.app'
+  'https://sorbet-ui.vercel.app'
 ).replace(/\/+$/, '');
 const attempts = Number(process.env.ATTEMPTS || 5);
 const delayMs = Number(process.env.DELAY_MS || 20000);

@@ -1,5 +1,5 @@
 /**
- * Sun UI Core Primitives
+ * Sorbet UI Core Primitives
  *
  * Headless component primitives for building accessible UI components.
  */

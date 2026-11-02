@@ -4,16 +4,16 @@ import {
   PaginationProps as MuiPaginationProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { colors, colorScaleForMode, typography } from '@smug-ui/tokens';
+import { colors, colorScaleForMode, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface PaginationProps extends Omit<MuiPaginationProps, 'variant' | 'color' | 'size'> {
   /** Total number of pages */
@@ -21,11 +21,11 @@ export interface PaginationProps extends Omit<MuiPaginationProps, 'variant' | 'c
   /** Current page (1-indexed) */
   page?: number;
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Number of sibling pages to show */
   siblingCount?: number;
   /** Number of boundary pages to show */
@@ -63,9 +63,9 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  $variant: SunVariant;
-  $color: SunColor;
-  $size: SunSize;
+  $variant: SorbetVariant;
+  $color: SorbetColor;
+  $size: SorbetSize;
 }
 
 const StyledPagination = styled(MuiPagination, {

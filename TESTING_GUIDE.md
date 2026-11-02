@@ -10,8 +10,8 @@ Requirements:
 - pnpm, at the version pinned in `packageManager` (run `corepack enable` once)
 
 ```bash
-git clone https://github.com/tahmidbintaslim/sun-ui.git
-cd sun-ui
+git clone https://github.com/tahmidbintaslim/sorbet-ui.git
+cd sorbet-ui
 pnpm install
 pnpm build:packages   # workspace packages import each other from dist/
 ```
@@ -39,13 +39,13 @@ pnpm build:packages   # workspace packages import each other from dist/
 ### Unit tests
 
 - Vitest with Testing Library in jsdom, configured per package (`packages/react/vitest.config.ts`, `packages/tokens/vitest.config.ts`) and run together from the root `vitest.config.ts`.
-- 505 tests in 29 files: one file per component in `packages/react/src` (376 tests), `packages/react/src/dark-mode.test.tsx` (35 tests that render components in light and dark mode and check their text, label, background and status-dot colors, and call the `@smug-ui/core` variant helpers in both modes), `packages/react/src/cjs-build.test.ts` (5 tests that `require()` the built CommonJS bundle; skipped until `pnpm build:packages` has run) and `packages/tokens/src/contrast.test.ts` (89 tests).
+- 505 tests in 29 files: one file per component in `packages/react/src` (376 tests), `packages/react/src/dark-mode.test.tsx` (35 tests that render components in light and dark mode and check their text, label, background and status-dot colors, and call the `@sorbet-ui/core` variant helpers in both modes), `packages/react/src/cjs-build.test.ts` (5 tests that `require()` the built CommonJS bundle; skipped until `pnpm build:packages` has run) and `packages/tokens/src/contrast.test.ts` (89 tests).
 - Six component test files also run jest-axe.
 
 ```bash
 pnpm test:ci                                      # everything, once
 pnpm vitest run packages/react/src/Button.test.tsx  # one file
-pnpm vitest run --project=@smug-ui/react          # one project (or --project=tokens)
+pnpm vitest run --project=@sorbet-ui/react          # one project (or --project=tokens)
 pnpm vitest run --coverage                        # with a v8 coverage report in coverage/
 ```
 
@@ -74,7 +74,7 @@ When `SB_URL` is set, failure messages link to that deployed Storybook instead o
 
 ## Adding a component
 
-1. Create `packages/react/src/MyComponent.tsx`. Copy the structure of an existing component such as `Chip.tsx`: extend the MUI props, replace `variant`, `color` and `size` with the Sun UI unions, style with `styled()` and the tokens, and export with `React.forwardRef` and a `displayName`.
+1. Create `packages/react/src/MyComponent.tsx`. Copy the structure of an existing component such as `Chip.tsx`: extend the MUI props, replace `variant`, `color` and `size` with the Sorbet UI unions, style with `styled()` and the tokens, and export with `React.forwardRef` and a `displayName`.
 2. Add `MyComponent.test.tsx` next to it: render, each variant, keyboard and ARIA behavior, and a jest-axe check.
 3. Add `MyComponent.stories.tsx` with a `play` function for the main interaction. Import test helpers from `storybook/test`.
 4. Export the component and its prop types from `packages/react/src/index.ts`.
@@ -116,12 +116,12 @@ Only the maintainer releases, and a push never publishes anything.
 
 The public packages were numbered 1.0.0 before anything was published; the readiness pass lowered them to 0.1.0. So the first release skips steps 1 and 2: publish a release tagged `v0.1.0`.
 
-Before the first publish, the `@smug-ui` scope has to exist on npm: it is not registered yet (the registry answers "Scope not found"), so create an npm org named `smug-ui` and use an `NPM_TOKEN` from one of its members. The `@sun-ui` scope is already registered by another account (`https://registry.npmjs.org/-/org/sun-ui/package` returns 200), so it is not an option unless you own it.
+Before the first publish, add an `NPM_TOKEN` from a member of the `sorbet-ui` npm org (the `@sorbet-ui` scope).
 
-Private packages (`@smug-ui/icons`, `docs`, `web`) are never versioned or published.
+Private packages (`@sorbet-ui/icons`, `docs`, `web`) are never versioned or published.
 
 ## Troubleshooting
 
-- **`Cannot find module '@smug-ui/tokens'` (or theme, core) in tests or Storybook**: run `pnpm build:packages`. Workspace packages resolve to their `dist/` folders.
+- **`Cannot find module '@sorbet-ui/tokens'` (or theme, core) in tests or Storybook**: run `pnpm build:packages`. Workspace packages resolve to their `dist/` folders.
 - **`Executable doesn't exist` from Playwright**: run `pnpm exec playwright install chromium`.
 - **Storybook cache problems**: delete `apps/docs/node_modules/.cache` and start Storybook again.

@@ -1,5 +1,5 @@
 /**
- * Sun UI DatePicker Primitives
+ * Sorbet UI DatePicker Primitives
  *
  * Headless date picker utilities for building accessible date selection components.
  */

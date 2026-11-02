@@ -16,7 +16,7 @@ const meta: Meta<typeof Rating> = {
     docs: {
       description: {
         component: `
-Rating allows users to provide feedback by selecting a value from a range. Sun UI extends MUI Rating with 5 visual variants.
+Rating allows users to provide feedback by selecting a value from a range. Sorbet UI extends MUI Rating with 5 visual variants.
 
 ## Features
 - **5 Variants**: solid, soft, outlined, ghost, plain

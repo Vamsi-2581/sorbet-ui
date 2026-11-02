@@ -1,15 +1,15 @@
 import { Box, Tab as MuiTab, Tabs as MuiTabs, TabsProps as MuiTabsProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { colors, colorScaleForMode, radius, transitions, typography } from '@smug-ui/tokens';
+import { colors, colorScaleForMode, radius, transitions, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface TabItem {
   /** Unique identifier */
@@ -32,11 +32,11 @@ export interface TabsProps extends Omit<MuiTabsProps, 'variant' | 'onChange' | '
   /** Default selected tab ID (uncontrolled) */
   defaultValue?: string;
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Tab orientation */
   orientation?: 'horizontal' | 'vertical';
   /** Tab change handler */
@@ -70,9 +70,9 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  $variant: SunVariant;
-  $color: SunColor;
-  $size: SunSize;
+  $variant: SorbetVariant;
+  $color: SorbetColor;
+  $size: SorbetSize;
   $showIndicator?: boolean;
 }
 

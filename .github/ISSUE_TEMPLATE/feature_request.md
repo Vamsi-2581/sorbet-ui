@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for Sun UI
+about: Suggest an idea for Sorbet UI
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
@@ -47,7 +47,7 @@ Describe any alternative solutions or features you've considered:
 
 ```tsx
 // Example usage
-import { NewComponent } from '@smug-ui/react';
+import { NewComponent } from '@sorbet-ui/react';
 
 export function MyComponent() {
   return <NewComponent />;
@@ -75,7 +75,7 @@ export function MyComponent() {
 ## ✅ Checklist
 
 - [ ] I searched existing issues and discussions
-- [ ] This feature aligns with Sun UI's goals
+- [ ] This feature aligns with Sorbet UI's goals
 - [ ] I've considered use cases
 - [ ] I'm not requesting duplicate functionality
 

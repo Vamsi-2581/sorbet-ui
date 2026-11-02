@@ -1,10 +1,10 @@
 /**
- * Sun UI Core - Progress Primitives
+ * Sorbet UI Core - Progress Primitives
  *
  * Headless progress utilities and types for building accessible progress indicators.
  */
 
-import type { SunColor, SunSize, SunVariant } from '../types';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '../types';
 
 // =============================================================================
 // TYPES
@@ -16,11 +16,11 @@ export interface ProgressProps {
   /** Current progress value (0-100) */
   value?: number;
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Progress type */
   type?: ProgressType;
   /** Indeterminate state (animated, unknown progress) */

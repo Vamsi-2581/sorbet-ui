@@ -8,24 +8,24 @@ import {
   CardProps as MuiCardProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, sizing } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, sizing } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface CardProps extends Omit<MuiCardProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Card size (affects padding and border-radius) */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Clickable card with hover effects */
@@ -38,7 +38,7 @@ export interface CardProps extends Omit<MuiCardProps, 'variant'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { padding: sizing.spacing[2], borderRadius: sizing.radius.sm },
@@ -53,9 +53,9 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
   $clickable?: boolean;
   $loading?: boolean;
   $disableAnimation?: boolean;
@@ -63,20 +63,20 @@ interface StyledProps {
 
 const StyledCard = styled(MuiCard, {
   shouldForwardProp: (prop) =>
-    !['sunVariant', 'sunColor', 'sunSize', '$clickable', '$loading', '$disableAnimation'].includes(
+    !['sorbetVariant', 'sorbetColor', 'sorbetSize', '$clickable', '$loading', '$disableAnimation'].includes(
       prop as string
     ),
 })<StyledProps>(({
   theme,
-  sunVariant,
-  sunColor,
-  sunSize,
+  sorbetVariant,
+  sorbetColor,
+  sorbetSize,
   $clickable,
   $loading,
   $disableAnimation,
 }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -152,7 +152,7 @@ const StyledCard = styled(MuiCard, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -191,9 +191,9 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <StyledCard
         ref={ref}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         $clickable={clickable || !!onClick}
         $loading={loading}
         $disableAnimation={disableAnimation}

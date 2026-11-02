@@ -106,4 +106,4 @@ Please describe the tests you ran:
 
 ---
 
-Thank you for contributing to Sun UI! 🌞
+Thank you for contributing to Sorbet UI! 🌞

@@ -9,24 +9,24 @@ import {
   SelectProps as MuiSelectProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, sizing, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, sizing, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface SelectProps extends Omit<MuiSelectProps<string>, 'variant' | 'size' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Select size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Helper text */
@@ -39,7 +39,7 @@ export interface SelectProps extends Omit<MuiSelectProps<string>, 'variant' | 's
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: {
@@ -84,16 +84,16 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
 }
 
 const StyledSelect = styled(MuiSelect, {
-  shouldForwardProp: (prop) => !['sunVariant', 'sunColor', 'sunSize'].includes(prop as string),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+  shouldForwardProp: (prop) => !['sorbetVariant', 'sorbetColor', 'sorbetSize'].includes(prop as string),
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -231,18 +231,18 @@ const StyledSelect = styled(MuiSelect, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
 const StyledFormControl = styled(FormControl, {
-  shouldForwardProp: (prop) => !['sunSize', 'sunColor'].includes(prop as string),
-})<{ sunSize: SunSize; sunColor: SunColor }>(({ theme, sunSize, sunColor }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
+  shouldForwardProp: (prop) => !['sorbetSize', 'sorbetColor'].includes(prop as string),
+})<{ sorbetSize: SorbetSize; sorbetColor: SorbetColor }>(({ theme, sorbetSize, sorbetColor }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
   const isDark = theme.palette.mode === 'dark';
   return {
     '& .MuiInputLabel-root': {
-      fontSize: sizeConfig[sunSize].labelSize,
+      fontSize: sizeConfig[sorbetSize].labelSize,
       fontWeight: typography.fontWeight.medium,
       color: isDark ? colors.semantic.neutral[400] : colors.semantic.neutral[600],
       '&.Mui-focused': {
@@ -295,8 +295,8 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
 
     return (
       <StyledFormControl
-        sunSize={size}
-        sunColor={color}
+        sorbetSize={size}
+        sorbetColor={color}
         error={error}
         disabled={disabled || loading}
         fullWidth
@@ -305,9 +305,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         <StyledSelect
           ref={ref}
           variant="outlined"
-          sunVariant={variant}
-          sunColor={color}
-          sunSize={size}
+          sorbetVariant={variant}
+          sorbetColor={color}
+          sorbetSize={size}
           label={label}
           disabled={disabled || loading}
           error={error}

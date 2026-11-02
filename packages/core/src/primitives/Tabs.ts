@@ -1,11 +1,11 @@
 /**
- * Sun UI Core - Tabs Primitives
+ * Sorbet UI Core - Tabs Primitives
  *
  * Headless tabs utilities and types for building accessible tab interfaces.
  * Based on WAI-ARIA Tabs Pattern.
  */
 
-import type { SunColor, SunSize, SunVariant } from '../types';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '../types';
 
 // =============================================================================
 // TYPES
@@ -32,11 +32,11 @@ export interface TabsProps {
   /** Default selected tab ID (uncontrolled) */
   defaultValue?: string;
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Tab orientation */
   orientation?: 'horizontal' | 'vertical';
   /** Tab change handler */

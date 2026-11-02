@@ -249,7 +249,7 @@ const DatePickerWrapper = styled('div', {
 // DatePicker Props
 // ─────────────────────────────────────────────────────────────────────────────
 
-export interface SunDatePickerProps extends Omit<MuiDatePickerProps, 'renderInput'> {
+export interface SorbetDatePickerProps extends Omit<MuiDatePickerProps, 'renderInput'> {
   /** Visual variant of the date picker */
   variant?: DatePickerVariant;
   /** Color theme of the date picker */
@@ -276,7 +276,7 @@ export interface SunDatePickerProps extends Omit<MuiDatePickerProps, 'renderInpu
 // DatePicker Component
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const DatePicker = React.forwardRef<HTMLDivElement, SunDatePickerProps>((props, ref) => {
+export const DatePicker = React.forwardRef<HTMLDivElement, SorbetDatePickerProps>((props, ref) => {
   const {
     variant = 'outlined',
     color = 'primary',

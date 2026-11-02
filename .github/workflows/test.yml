@@ -1,4 +1,4 @@
-# Sun UI - CI Pipeline
+# Sorbet UI - CI Pipeline
 #
 # Runs on every push and PR to main:
 # - Lint and type check

@@ -6,7 +6,7 @@ export {
   type AutocompleteOption,
   type AutocompleteSize,
   type AutocompleteVariant,
-  type SunAutocompleteProps,
+  type SorbetAutocompleteProps,
 } from './Autocomplete';
 export { Avatar, type AvatarProps } from './Avatar';
 export { Badge, type BadgeProps } from './Badge';
@@ -22,7 +22,7 @@ export {
   type DatePickerSize,
   type DatePickerVariant,
   type Dayjs,
-  type SunDatePickerProps,
+  type SorbetDatePickerProps,
 } from './DatePicker';
 export { Dialog, DialogActions, DialogContent, DialogTitle, type DialogProps } from './Dialog';
 export { Drawer, type DrawerProps } from './Drawer';

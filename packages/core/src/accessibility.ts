@@ -1,5 +1,5 @@
 /**
- * Sun UI Accessibility Utilities
+ * Sorbet UI Accessibility Utilities
  *
  * Helper functions and constants for accessibility
  */
@@ -77,7 +77,7 @@ export const isNavigationKey = (key: string): boolean => {
  * Generate unique ID for accessibility
  */
 let idCounter = 0;
-export const generateId = (prefix = 'smug-ui'): string => {
+export const generateId = (prefix = 'sorbet-ui'): string => {
   idCounter += 1;
   return `${prefix}-${idCounter}`;
 };

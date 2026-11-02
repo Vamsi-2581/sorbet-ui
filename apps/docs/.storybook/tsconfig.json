@@ -5,9 +5,9 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "paths": {
-      "@smug-ui/tokens": ["../../../packages/tokens/src"],
-      "@smug-ui/theme": ["../../../packages/theme/src"],
-      "@smug-ui/react": ["../../../packages/react/src"]
+      "@sorbet-ui/tokens": ["../../../packages/tokens/src"],
+      "@sorbet-ui/theme": ["../../../packages/theme/src"],
+      "@sorbet-ui/react": ["../../../packages/react/src"]
     }
   },
   "include": ["*.ts", "*.tsx", "../../../packages/react/src/**/*.tsx"],

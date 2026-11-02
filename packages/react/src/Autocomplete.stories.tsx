@@ -15,7 +15,7 @@ const meta: Meta<typeof Autocomplete> = {
     docs: {
       description: {
         component: `
-The Autocomplete component extends MUI's Autocomplete with Sun UI's design system.
+The Autocomplete component extends MUI's Autocomplete with Sorbet UI's design system.
 It supports 5 variants (solid, soft, outlined, ghost, plain), 7 colors, 5 sizes,
 single/multiple selection, free solo input, and custom option rendering.
         `,

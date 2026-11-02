@@ -5,24 +5,24 @@ import {
   TextFieldProps as MuiTextFieldProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, sizing, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, sizing, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface TextFieldProps extends Omit<MuiTextFieldProps, 'variant' | 'size' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size of the input */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Start adornment icon/element */
@@ -35,7 +35,7 @@ export interface TextFieldProps extends Omit<MuiTextFieldProps, 'variant' | 'siz
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: {
@@ -80,16 +80,16 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
 }
 
 const StyledTextField = styled(MuiTextField, {
-  shouldForwardProp: (prop) => !['sunVariant', 'sunColor', 'sunSize'].includes(prop as string),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+  shouldForwardProp: (prop) => !['sorbetVariant', 'sorbetColor', 'sorbetSize'].includes(prop as string),
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -250,7 +250,7 @@ const StyledTextField = styled(MuiTextField, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -295,9 +295,9 @@ export const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(
       <StyledTextField
         ref={ref}
         variant={muiVariant}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         disabled={disabled || loading}
         InputProps={{
           ...InputProps,

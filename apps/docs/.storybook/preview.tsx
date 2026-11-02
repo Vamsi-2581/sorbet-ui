@@ -1,11 +1,11 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { darkTheme, lightTheme } from '@smug-ui/theme';
+import { darkTheme, lightTheme } from '@sorbet-ui/theme';
 import type { Preview } from 'storybook/react';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
-// Custom Sun UI viewports for specific breakpoints
-const sunUIViewports = {
+// Custom Sorbet UI viewports for specific breakpoints
+const sorbetUIViewports = {
   xs: {
     name: 'Extra Small (XS)',
     styles: {
@@ -60,7 +60,7 @@ const preview: Preview = {
     viewport: {
       viewports: {
         ...INITIAL_VIEWPORTS,
-        ...sunUIViewports,
+        ...sorbetUIViewports,
       },
     },
     options: {

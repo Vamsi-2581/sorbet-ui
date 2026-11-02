@@ -11,24 +11,24 @@ import {
   sizing,
   typography,
   type ColorScale,
-} from '@smug-ui/tokens';
+} from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface TooltipProps extends Omit<MuiTooltipProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Tooltip size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Custom loading indicator */
@@ -76,10 +76,10 @@ const sizeConfig = {
 
 // `colorScale` comes from the MUI theme mode, like every other component. `isDark`
 // picks the neutral surfaces and follows the `data-theme="dark"` attribute.
-const getVariantStyles = (variant: SunVariant, colorScale: ColorScale, isDark: boolean) => {
+const getVariantStyles = (variant: SorbetVariant, colorScale: ColorScale, isDark: boolean) => {
   const neutralScale = colors.semantic.neutral;
 
-  const variants: Record<SunVariant, object> = {
+  const variants: Record<SorbetVariant, object> = {
     solid: {
       backgroundColor: colorScale.main,
       color: colorScale.contrastText,
@@ -112,10 +112,10 @@ const getVariantStyles = (variant: SunVariant, colorScale: ColorScale, isDark: b
   return variants[variant];
 };
 
-const getArrowStyles = (variant: SunVariant, colorScale: ColorScale, isDark: boolean) => {
+const getArrowStyles = (variant: SorbetVariant, colorScale: ColorScale, isDark: boolean) => {
   const neutralScale = colors.semantic.neutral;
 
-  const arrowColors: Record<SunVariant, string> = {
+  const arrowColors: Record<SorbetVariant, string> = {
     solid: colorScale.main,
     soft: isDark ? colorScale.alpha30 : colorScale.alpha20,
     outlined: isDark ? neutralScale[800] : neutralScale[50],

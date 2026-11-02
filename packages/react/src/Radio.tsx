@@ -13,24 +13,24 @@ import {
   sizing,
   textColorsForMode,
   typography,
-} from '@smug-ui/tokens';
+} from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface RadioProps extends Omit<MuiRadioProps, 'size' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Radio size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Label text */
   label?: React.ReactNode;
   /** Show loading state */
@@ -41,7 +41,7 @@ export interface RadioProps extends Omit<MuiRadioProps, 'size' | 'color'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { radio: 16, dot: 6, label: typography.fontSize.xs },
@@ -58,7 +58,7 @@ const sizeConfig = {
 interface IconProps {
   size: number;
   dotSize: number;
-  variant: SunVariant;
+  variant: SorbetVariant;
   colorScale: ReturnType<typeof getColorScale>;
   checked?: boolean;
 }
@@ -129,11 +129,11 @@ const RadioIcon = ({ size, dotSize, variant, colorScale, checked }: IconProps) =
 // =============================================================================
 
 interface StyledProps {
-  sunSize: SunSize;
+  sorbetSize: SorbetSize;
 }
 
 const StyledRadio = styled(MuiRadio, {
-  shouldForwardProp: (prop) => prop !== 'sunSize',
+  shouldForwardProp: (prop) => prop !== 'sorbetSize',
 })<StyledProps>(({ theme }) => ({
   padding: sizing.spacing[1],
   '&:hover': {
@@ -150,12 +150,12 @@ const StyledRadio = styled(MuiRadio, {
 }));
 
 const StyledLabel = styled(FormControlLabel, {
-  shouldForwardProp: (prop) => prop !== 'sunSize',
-})<{ sunSize: SunSize }>(({ theme, sunSize }) => ({
+  shouldForwardProp: (prop) => prop !== 'sorbetSize',
+})<{ sorbetSize: SorbetSize }>(({ theme, sorbetSize }) => ({
   margin: 0,
   gap: sizing.spacing[2],
   '& .MuiFormControlLabel-label': {
-    fontSize: sizeConfig[sunSize].label,
+    fontSize: sizeConfig[sorbetSize].label,
     fontFamily: typography.fontFamily.sans,
     color: textColorsForMode(theme.palette.mode === 'dark').primary,
     '&.Mui-disabled': {
@@ -189,7 +189,7 @@ export const Radio = React.forwardRef<HTMLButtonElement, RadioProps>(
     const radioElement = (
       <StyledRadio
         ref={ref}
-        sunSize={size}
+        sorbetSize={size}
         checked={checked}
         disabled={disabled || loading}
         icon={
@@ -220,7 +220,7 @@ export const Radio = React.forwardRef<HTMLButtonElement, RadioProps>(
     if (label) {
       return (
         <StyledLabel
-          sunSize={size}
+          sorbetSize={size}
           control={radioElement}
           label={label}
           disabled={disabled || loading}

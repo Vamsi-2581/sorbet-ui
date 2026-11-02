@@ -13,24 +13,24 @@ import {
   sizing,
   textColorsForMode,
   typography,
-} from '@smug-ui/tokens';
+} from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface CheckboxProps extends Omit<MuiCheckboxProps, 'size' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Checkbox size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Label text */
   label?: React.ReactNode;
   /** Show loading state */
@@ -41,7 +41,7 @@ export interface CheckboxProps extends Omit<MuiCheckboxProps, 'size' | 'color'> 
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { checkbox: 16, icon: 12, label: typography.fontSize.xs },
@@ -57,7 +57,7 @@ const sizeConfig = {
 
 interface IconProps {
   size: number;
-  variant: SunVariant;
+  variant: SorbetVariant;
   colorScale: ReturnType<typeof getColorScale>;
   checked?: boolean;
   indeterminate?: boolean;
@@ -138,11 +138,11 @@ const CheckboxIcon = ({ size, variant, colorScale, checked, indeterminate }: Ico
 // =============================================================================
 
 interface StyledProps {
-  sunSize: SunSize;
+  sorbetSize: SorbetSize;
 }
 
 const StyledCheckbox = styled(MuiCheckbox, {
-  shouldForwardProp: (prop) => prop !== 'sunSize',
+  shouldForwardProp: (prop) => prop !== 'sorbetSize',
 })<StyledProps>(({ theme }) => ({
   padding: sizing.spacing[1],
   '&:hover': {
@@ -159,12 +159,12 @@ const StyledCheckbox = styled(MuiCheckbox, {
 }));
 
 const StyledLabel = styled(FormControlLabel, {
-  shouldForwardProp: (prop) => prop !== 'sunSize',
-})<{ sunSize: SunSize }>(({ theme, sunSize }) => ({
+  shouldForwardProp: (prop) => prop !== 'sorbetSize',
+})<{ sorbetSize: SorbetSize }>(({ theme, sorbetSize }) => ({
   margin: 0,
   gap: sizing.spacing[2],
   '& .MuiFormControlLabel-label': {
-    fontSize: sizeConfig[sunSize].label,
+    fontSize: sizeConfig[sorbetSize].label,
     fontFamily: typography.fontFamily.sans,
     color: textColorsForMode(theme.palette.mode === 'dark').primary,
     '&.Mui-disabled': {
@@ -214,7 +214,7 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
     const checkboxElement = (
       <StyledCheckbox
         ref={ref}
-        sunSize={size}
+        sorbetSize={size}
         checked={checked ?? isChecked}
         indeterminate={indeterminate}
         disabled={disabled || loading}
@@ -249,7 +249,7 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
     if (label) {
       return (
         <StyledLabel
-          sunSize={size}
+          sorbetSize={size}
           control={checkboxElement}
           label={label}
           disabled={disabled || loading}

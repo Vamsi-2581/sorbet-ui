@@ -513,7 +513,7 @@ export const FullDemo: Story = {
       <Stack spacing={4}>
         <Box>
           <Typography variant="h6" gutterBottom>
-            Sun UI Table
+            Sorbet UI Table
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             A comprehensive table component with sorting, selection, pagination, and custom cell

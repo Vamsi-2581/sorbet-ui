@@ -31,7 +31,7 @@ const meta: Meta<typeof ToggleButtonGroup> = {
     docs: {
       description: {
         component: `
-ToggleButtonGroup allows users to select one or multiple options from a set. Sun UI extends MUI ToggleButtonGroup with 5 visual variants.
+ToggleButtonGroup allows users to select one or multiple options from a set. Sorbet UI extends MUI ToggleButtonGroup with 5 visual variants.
 
 ## Features
 - **5 Variants**: solid, soft, outlined, ghost, plain

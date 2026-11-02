@@ -1,5 +1,5 @@
 /**
- * Sun UI Slider Primitives
+ * Sorbet UI Slider Primitives
  *
  * Headless slider utilities for building accessible slider components.
  */

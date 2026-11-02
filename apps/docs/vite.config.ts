@@ -5,9 +5,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   resolve: {
     alias: {
-      '@smug-ui/tokens': path.resolve(__dirname, '../../../packages/tokens/src'),
-      '@smug-ui/theme': path.resolve(__dirname, '../../../packages/theme/src'),
-      '@smug-ui/react': path.resolve(__dirname, '../../../packages/react/src'),
+      '@sorbet-ui/tokens': path.resolve(__dirname, '../../../packages/tokens/src'),
+      '@sorbet-ui/theme': path.resolve(__dirname, '../../../packages/theme/src'),
+      '@sorbet-ui/react': path.resolve(__dirname, '../../../packages/react/src'),
     },
   },
 });

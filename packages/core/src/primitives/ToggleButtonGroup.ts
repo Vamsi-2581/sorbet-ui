@@ -1,5 +1,5 @@
 /**
- * Sun UI ToggleButtonGroup Primitives
+ * Sorbet UI ToggleButtonGroup Primitives
  *
  * Headless toggle button group utilities for building accessible toggle components.
  */

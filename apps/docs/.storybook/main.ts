@@ -34,9 +34,9 @@ const config: StorybookConfig = {
         ...config.resolve,
         alias: {
           // Point to dist for proper ESM module resolution in Vitest browser mode
-          '@smug-ui/tokens': path.resolve(__dirname, '../../../packages/tokens/dist'),
-          '@smug-ui/theme': path.resolve(__dirname, '../../../packages/theme/dist'),
-          '@smug-ui/react': path.resolve(__dirname, '../../../packages/react/src'),
+          '@sorbet-ui/tokens': path.resolve(__dirname, '../../../packages/tokens/dist'),
+          '@sorbet-ui/theme': path.resolve(__dirname, '../../../packages/theme/dist'),
+          '@sorbet-ui/react': path.resolve(__dirname, '../../../packages/react/src'),
           // Fix CJS/ESM compatibility issues
           semver: path.resolve(__dirname, './semver-esm-wrapper.js'),
           'use-sync-external-store/shim/index.js': path.resolve(
@@ -48,7 +48,7 @@ const config: StorybookConfig = {
       optimizeDeps: {
         include: ['@mui/material', '@emotion/react', '@emotion/styled'],
         // Exclude workspace packages from pre-bundling - they're resolved via aliases
-        exclude: ['@smug-ui/tokens', '@smug-ui/theme', '@smug-ui/react'],
+        exclude: ['@sorbet-ui/tokens', '@sorbet-ui/theme', '@sorbet-ui/react'],
         esbuildOptions: {
           define: {
             global: 'globalThis',

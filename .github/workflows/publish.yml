@@ -1,4 +1,4 @@
-# Sun UI - Publish to npm
+# Sorbet UI - Publish to npm
 #
 # Publishes only when the owner publishes a GitHub release (for example tag v0.1.0).
 # A push to any branch never publishes.

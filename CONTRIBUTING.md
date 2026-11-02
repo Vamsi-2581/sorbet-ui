@@ -1,6 +1,6 @@
-# 🌞 Contributing to Sun UI
+# 🌞 Contributing to Sorbet UI
 
-Thank you for helping with Sun UI, a set of React components built on Material UI v7. Bug reports, tests, docs and new components are all welcome.
+Thank you for helping with Sorbet UI, a set of React components built on Material UI v7. Bug reports, tests, docs and new components are all welcome.
 
 This document explains how to set up the repo, make a change and open a pull request.
 
@@ -47,14 +47,14 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 
 ```bash
 # 1. Fork the repository on GitHub
-# Visit: https://github.com/tahmidbintaslim/sun-ui/fork
+# Visit: https://github.com/tahmidbintaslim/sorbet-ui/fork
 
 # 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/sun-ui.git
-cd sun-ui
+git clone https://github.com/YOUR_USERNAME/sorbet-ui.git
+cd sorbet-ui
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/tahmidbintaslim/sun-ui.git
+git remote add upstream https://github.com/tahmidbintaslim/sorbet-ui.git
 
 # 4. Keep your fork updated
 git fetch upstream
@@ -394,7 +394,7 @@ Your changes ship in the next release. The maintainer versions the packages with
 
 ### Report a Bug
 
-[Create bug report →](https://github.com/tahmidbintaslim/sun-ui/issues/new?template=bug_report.md)
+[Create bug report →](https://github.com/tahmidbintaslim/sorbet-ui/issues/new?template=bug_report.md)
 
 **Include:**
 
@@ -419,7 +419,7 @@ Your changes ship in the next release. The maintainer versions the packages with
 
 ### Request a Feature
 
-[Open a feature request →](https://github.com/tahmidbintaslim/sun-ui/issues/new?template=feature_request.md)
+[Open a feature request →](https://github.com/tahmidbintaslim/sorbet-ui/issues/new?template=feature_request.md)
 
 **Describe:**
 
@@ -479,7 +479,7 @@ export function Button(props: any) {
 
 ### Colors
 
-- Take variant colors from `colorScaleForMode(color, theme.palette.mode === 'dark')` in `@smug-ui/tokens`. Do not read `colors.<name>.main`, `.dark` or `.contrastText` directly: those are the light-theme shades, which are too dark to read on dark surfaces.
+- Take variant colors from `colorScaleForMode(color, theme.palette.mode === 'dark')` in `@sorbet-ui/tokens`. Do not read `colors.<name>.main`, `.dark` or `.contrastText` directly: those are the light-theme shades, which are too dark to read on dark surfaces.
 - Add a case to `packages/react/src/dark-mode.test.tsx` when a component reads `main` or `dark` in a new place.
 
 ### Testing
@@ -548,21 +548,21 @@ export const Loading: Story = {
 
 ## Questions?
 
-- **[GitHub Issues](https://github.com/tahmidbintaslim/sun-ui/issues)**: questions, bugs and ideas
+- **[GitHub Issues](https://github.com/tahmidbintaslim/sorbet-ui/issues)**: questions, bugs and ideas
 - **Security problems**: see [SECURITY.md](SECURITY.md) (private reporting, not issues)
 
 ---
 
 ## License
 
-By contributing to Sun UI, you agree that your contributions will be licensed under its MIT License.
+By contributing to Sorbet UI, you agree that your contributions will be licensed under its MIT License.
 
 ---
 
 <div align="center">
 
-**Thank you for contributing to Sun UI! 🌞**
+**Thank you for contributing to Sorbet UI! 🌞**
 
-Every contribution makes Sun UI better for everyone.
+Every contribution makes Sorbet UI better for everyone.
 
 </div>

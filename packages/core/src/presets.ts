@@ -1,12 +1,12 @@
 /**
- * Sun UI Variant Presets
+ * Sorbet UI Variant Presets
  *
- * Centralized styling presets for all 5 Sun UI variants.
+ * Centralized styling presets for all 5 Sorbet UI variants.
  * This ensures visual consistency across all components.
  */
 
-import { colors, colorScaleForMode, type ColorScale } from '@smug-ui/tokens';
-import type { SunColor, SunVariant } from './types';
+import { colors, colorScaleForMode, type ColorScale } from '@sorbet-ui/tokens';
+import type { SorbetColor, SorbetVariant } from './types';
 
 /**
  * Get color scale for a semantic color.
@@ -14,7 +14,7 @@ import type { SunColor, SunVariant } from './types';
  * Pass `isDark` in dark mode. The light-theme `main` and `dark` shades are too dark
  * to read on dark surfaces, so dark mode uses the lighter scale the components use.
  */
-export const getColorScale = (color: SunColor, isDark = false): ColorScale => {
+export const getColorScale = (color: SorbetColor, isDark = false): ColorScale => {
   return colorScaleForMode(color, isDark);
 };
 
@@ -44,14 +44,14 @@ export interface VariantStyles {
  * dark mode (see `getColorScale`).
  */
 export const getVariantStyles = (
-  variant: SunVariant,
-  color: SunColor = 'primary',
+  variant: SorbetVariant,
+  color: SorbetColor = 'primary',
   isDark = false
 ): VariantStyles => {
   const colorScale = getColorScale(color, isDark);
   const neutralScale = colors.neutral;
 
-  const baseStyles: Record<SunVariant, VariantStyles> = {
+  const baseStyles: Record<SorbetVariant, VariantStyles> = {
     solid: {
       backgroundColor: colorScale.main,
       color: colorScale.contrastText,
@@ -146,7 +146,7 @@ export const getVariantStyles = (
  * Get CSS object for variant styles (for use with styled-components or emotion). Pass
  * `isDark` in dark mode (see `getColorScale`).
  */
-export const getVariantCss = (variant: SunVariant, color: SunColor = 'primary', isDark = false) => {
+export const getVariantCss = (variant: SorbetVariant, color: SorbetColor = 'primary', isDark = false) => {
   const styles = getVariantStyles(variant, color, isDark);
 
   return {

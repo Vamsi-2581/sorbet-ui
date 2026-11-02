@@ -11,7 +11,7 @@ const meta: Meta<typeof DatePicker> = {
     docs: {
       description: {
         component: `
-The DatePicker component extends MUI X Date Picker with Sun UI's design system.
+The DatePicker component extends MUI X Date Picker with Sorbet UI's design system.
 It supports 5 variants (solid, soft, outlined, ghost, plain), 7 colors, 5 sizes,
 and integrates with dayjs for date handling.
         `,

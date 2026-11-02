@@ -315,7 +315,7 @@ export const FullDemo: Story = {
       <Stack spacing={4}>
         <Box>
           <Typography variant="h6" gutterBottom>
-            Sun UI Dialog
+            Sorbet UI Dialog
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             A comprehensive dialog with 5 variants, 7 colors, 5 sizes, loading states, and
@@ -382,7 +382,7 @@ export const FullDemo: Story = {
           color={color}
           maxWidth="sm"
         >
-          <DialogTitle>Sun UI Dialog Demo</DialogTitle>
+          <DialogTitle>Sorbet UI Dialog Demo</DialogTitle>
           <DialogContent>
             <Typography>
               Variant: <strong>{variant}</strong>, Color: <strong>{color}</strong>

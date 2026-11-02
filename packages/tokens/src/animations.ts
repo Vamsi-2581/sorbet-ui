@@ -1,5 +1,5 @@
 /**
- * Sun UI Animation System
+ * Sorbet UI Animation System
  *
  * Transitions, keyframes, and animation presets
  */

@@ -1,5 +1,5 @@
 /**
- * Sun UI Rating Primitives
+ * Sorbet UI Rating Primitives
  *
  * Headless rating utilities for building accessible rating components.
  */

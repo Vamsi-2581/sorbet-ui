@@ -6,24 +6,24 @@ import {
   SnackbarProps as MuiSnackbarProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, sizing, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, sizing, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface SnackbarProps extends Omit<MuiSnackbarProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Snackbar size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Disable animations */
@@ -34,18 +34,18 @@ export interface SnackbarProps extends Omit<MuiSnackbarProps, 'variant'> {
 
 export interface SnackbarContentProps extends Omit<MuiSnackbarContentProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size */
-  size?: SunSize;
+  size?: SorbetSize;
 }
 
 // =============================================================================
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: {
@@ -85,16 +85,16 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledContentProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
 }
 
 const StyledSnackbarContent = styled(MuiSnackbarContent, {
-  shouldForwardProp: (prop) => !['sunVariant', 'sunColor', 'sunSize'].includes(prop as string),
-})<StyledContentProps>(({ theme, sunVariant, sunColor, sunSize }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+  shouldForwardProp: (prop) => !['sorbetVariant', 'sorbetColor', 'sorbetSize'].includes(prop as string),
+})<StyledContentProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -149,7 +149,7 @@ const StyledSnackbarContent = styled(MuiSnackbarContent, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -162,9 +162,9 @@ export const SnackbarContent = React.forwardRef<HTMLDivElement, SnackbarContentP
     return (
       <StyledSnackbarContent
         ref={ref}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         {...rest}
       />
     );
@@ -232,9 +232,9 @@ export const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(
     return (
       <StyledSnackbar ref={ref} $disableAnimation={disableAnimation} {...rest}>
         <StyledSnackbarContent
-          sunVariant={variant}
-          sunColor={color}
-          sunSize={size}
+          sorbetVariant={variant}
+          sorbetColor={color}
+          sorbetSize={size}
           message={renderMessage()}
           action={action}
         />

@@ -1,5 +1,5 @@
 /**
- * Sun UI Spacing & Sizing System
+ * Sorbet UI Spacing & Sizing System
  *
  * Consistent spacing scale based on 4px grid
  * Size tokens for component dimensions

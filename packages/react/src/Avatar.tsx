@@ -4,24 +4,24 @@ import {
   AvatarProps as MuiAvatarProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface AvatarProps extends Omit<MuiAvatarProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Avatar size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Show online/offline status indicator */
@@ -34,7 +34,7 @@ export interface AvatarProps extends Omit<MuiAvatarProps, 'variant'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { size: 24, fontSize: typography.fontSize.xs, iconSize: 12, statusSize: 6 },
@@ -62,18 +62,18 @@ const getStatusColor = (status: 'online' | 'offline' | 'away' | 'busy', isDark: 
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
   $disableAnimation?: boolean;
 }
 
 const StyledAvatar = styled(MuiAvatar, {
   shouldForwardProp: (prop) =>
-    !['sunVariant', 'sunColor', 'sunSize', '$disableAnimation'].includes(prop as string),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize, $disableAnimation }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+    !['sorbetVariant', 'sorbetColor', 'sorbetSize', '$disableAnimation'].includes(prop as string),
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize, $disableAnimation }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -120,7 +120,7 @@ const StyledAvatar = styled(MuiAvatar, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -131,25 +131,25 @@ const AvatarWrapper = styled('div')({
 
 const StatusIndicator = styled('span')<{
   status: 'online' | 'offline' | 'away' | 'busy';
-  sunSize: SunSize;
-}>(({ theme, status, sunSize }) => ({
+  sorbetSize: SorbetSize;
+}>(({ theme, status, sorbetSize }) => ({
   position: 'absolute',
   bottom: 0,
   right: 0,
-  width: sizeConfig[sunSize].statusSize,
-  height: sizeConfig[sunSize].statusSize,
+  width: sizeConfig[sorbetSize].statusSize,
+  height: sizeConfig[sorbetSize].statusSize,
   borderRadius: '50%',
   backgroundColor: getStatusColor(status, theme.palette.mode === 'dark'),
   border: '2px solid white',
   boxSizing: 'content-box',
 }));
 
-const LoadingOverlay = styled('div')<{ sunSize: SunSize }>(({ sunSize }) => ({
+const LoadingOverlay = styled('div')<{ sorbetSize: SorbetSize }>(({ sorbetSize }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
-  width: sizeConfig[sunSize].size,
-  height: sizeConfig[sunSize].size,
+  width: sizeConfig[sorbetSize].size,
+  height: sizeConfig[sorbetSize].size,
   borderRadius: '50%',
   display: 'flex',
   alignItems: 'center',
@@ -181,20 +181,20 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       <AvatarWrapper>
         <StyledAvatar
           ref={ref}
-          sunVariant={variant}
-          sunColor={color}
-          sunSize={size}
+          sorbetVariant={variant}
+          sorbetColor={color}
+          sorbetSize={size}
           $disableAnimation={disableAnimation}
           {...rest}
         >
           {children}
         </StyledAvatar>
         {loading && (
-          <LoadingOverlay sunSize={size}>
+          <LoadingOverlay sorbetSize={size}>
             <CircularProgress size={sizeStyles.iconSize} sx={{ color: 'white' }} />
           </LoadingOverlay>
         )}
-        {status && !loading && <StatusIndicator status={status} sunSize={size} />}
+        {status && !loading && <StatusIndicator status={status} sorbetSize={size} />}
       </AvatarWrapper>
     );
   }

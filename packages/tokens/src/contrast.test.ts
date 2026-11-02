@@ -10,7 +10,7 @@ import {
   type ColorScale,
   type SemanticColor,
 } from './colors';
-import { sunPalette } from './palette';
+import { sorbetPalette } from './palette';
 
 // WCAG 2.x relative luminance and contrast ratio.
 // https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio
@@ -164,25 +164,25 @@ describe.each(semanticColors.filter((name) => name !== 'neutral'))(
   }
 );
 
-// darkTheme in @smug-ui/theme sets MUI's primary, success, warning and error `main`
+// darkTheme in @sorbet-ui/theme sets MUI's primary, success, warning and error `main`
 // to these 500 shades.
 describe.each(['primary', 'success', 'warning', 'danger'] as const)(
   'MUI dark theme palette %s on the dark default background',
   (name) => {
     it('500 shade reaches 4.5:1', () => {
-      const page = sunPalette.neutral[900];
-      expect(contrast(sunPalette[name][500], page, page)).toBeGreaterThanOrEqual(AA_TEXT);
+      const page = sorbetPalette.neutral[900];
+      expect(contrast(sorbetPalette[name][500], page, page)).toBeGreaterThanOrEqual(AA_TEXT);
     });
   }
 );
 
-// sunPalette feeds the MUI theme (lightTheme/darkTheme), where MUI uses `main` as
+// sorbetPalette feeds the MUI theme (lightTheme/darkTheme), where MUI uses `main` as
 // text for outlined and text buttons, links and focused labels.
-describe.each(Object.keys(sunPalette) as (keyof typeof sunPalette)[])(
+describe.each(Object.keys(sorbetPalette) as (keyof typeof sorbetPalette)[])(
   'MUI theme palette %s on a white page',
   (name) => {
     it('main on white', () => {
-      expect(contrast(sunPalette[name].main, WHITE)).toBeGreaterThanOrEqual(AA_TEXT);
+      expect(contrast(sorbetPalette[name].main, WHITE)).toBeGreaterThanOrEqual(AA_TEXT);
     });
   }
 );

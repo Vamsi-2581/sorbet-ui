@@ -305,7 +305,7 @@ export const FullDemo: Story = {
     <Stack spacing={4}>
       <Box>
         <Typography variant="h6" gutterBottom>
-          Sun UI Select
+          Sorbet UI Select
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           A comprehensive dropdown select with 5 variants, 7 colors, 5 sizes, loading states, and

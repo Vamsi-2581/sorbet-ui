@@ -8,24 +8,24 @@ import {
   DialogProps as MuiDialogProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, sizing, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, sizing, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface DialogProps extends Omit<MuiDialogProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme (affects header accent) */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Dialog size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading overlay */
   loading?: boolean;
   /** Disable animations */
@@ -36,7 +36,7 @@ export interface DialogProps extends Omit<MuiDialogProps, 'variant'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { maxWidth: 320, padding: sizing.spacing[3], borderRadius: sizing.radius.md },
@@ -51,21 +51,21 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
   $loading?: boolean;
   $disableAnimation?: boolean;
 }
 
 const StyledDialog = styled(MuiDialog, {
   shouldForwardProp: (prop) =>
-    !['sunVariant', 'sunColor', 'sunSize', '$loading', '$disableAnimation'].includes(
+    !['sorbetVariant', 'sorbetColor', 'sorbetSize', '$loading', '$disableAnimation'].includes(
       prop as string
     ),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize, $loading, $disableAnimation }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize, $loading, $disableAnimation }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -154,7 +154,7 @@ const StyledDialog = styled(MuiDialog, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -191,9 +191,9 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
     return (
       <StyledDialog
         ref={ref}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         $loading={loading}
         $disableAnimation={disableAnimation}
         {...rest}

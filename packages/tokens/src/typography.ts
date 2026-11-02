@@ -1,5 +1,5 @@
 /**
- * Sun UI Typography System
+ * Sorbet UI Typography System
  *
  * Font families, sizes, weights, and line heights
  */

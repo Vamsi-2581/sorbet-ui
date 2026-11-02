@@ -1,6 +1,6 @@
-# Sun UI landing page
+# Sorbet UI landing page
 
-A one-page demo of Sun UI components, built with React, Vite and Material UI. It is not deployed.
+A one-page demo of Sorbet UI components, built with React, Vite and Material UI. It is not deployed.
 
 ## Development
 
@@ -20,5 +20,5 @@ pnpm web:build
 
 ## What it shows
 
-- Hero, feature cards and a component showcase built with Sun UI components
-- A light and dark theme toggle using `lightTheme` and `darkTheme` from `@smug-ui/theme`
+- Hero, feature cards and a component showcase built with Sorbet UI components
+- A light and dark theme toggle using `lightTheme` and `darkTheme` from `@sorbet-ui/theme`

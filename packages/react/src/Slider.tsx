@@ -2,17 +2,17 @@ import Box from '@mui/material/Box';
 import MuiSlider, { SliderProps as MuiSliderProps } from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import { styled, useTheme } from '@mui/material/styles';
-import type { SunColor, SunSize, SunVariant } from '@smug-ui/core';
-import { colors, ColorScale, radius, textColorsForMode, transitions } from '@smug-ui/tokens';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '@sorbet-ui/core';
+import { colors, ColorScale, radius, textColorsForMode, transitions } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type SliderVariant = SunVariant;
-export type SliderColor = SunColor;
-export type SliderSize = SunSize;
+export type SliderVariant = SorbetVariant;
+export type SliderColor = SorbetColor;
+export type SliderSize = SorbetSize;
 
 export interface SliderProps extends Omit<
   MuiSliderProps,

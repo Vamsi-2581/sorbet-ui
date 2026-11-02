@@ -1,14 +1,14 @@
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
 import { keyframes, styled } from '@mui/material/styles';
-import { colors, colorScaleForMode, componentSizes, radius, transitions } from '@smug-ui/tokens';
+import { colors, colorScaleForMode, componentSizes, radius, transitions } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-export type SunVariant = 'solid' | 'soft' | 'outlined' | 'dash' | 'ghost' | 'plain' | 'link';
-export type SunColor =
+export type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'dash' | 'ghost' | 'plain' | 'link';
+export type SorbetColor =
   | 'primary'
   | 'secondary'
   | 'success'
@@ -16,18 +16,18 @@ export type SunColor =
   | 'danger'
   | 'info'
   | 'neutral';
-export type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type SunShape = 'default' | 'wide' | 'block' | 'square' | 'circle';
+export type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type SorbetShape = 'default' | 'wide' | 'block' | 'square' | 'circle';
 
 export interface ButtonProps extends Omit<MuiButtonProps, 'variant' | 'color' | 'size'> {
   /** Visual variant of the button */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme of the button */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size of the button */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Shape modifier: wide (max 256px), block (full width), square, circle */
-  shape?: SunShape;
+  shape?: SorbetShape;
   /** Show loading indicator */
   loading?: boolean;
   /** Position of loading indicator */
@@ -55,11 +55,11 @@ const spinKeyframes = keyframes`
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorStyles = (color: SunColor, variant: SunVariant, isDark: boolean = false) => {
+const getColorStyles = (color: SorbetColor, variant: SorbetVariant, isDark: boolean = false) => {
   const colorScale = colorScaleForMode(color, isDark);
   const neutralScale = colors.neutral;
 
-  const variants: Record<SunVariant, object> = {
+  const variants: Record<SorbetVariant, object> = {
     // Solid: Filled background with contrast text
     solid: {
       backgroundColor: colorScale.main,
@@ -171,7 +171,7 @@ const getColorStyles = (color: SunColor, variant: SunVariant, isDark: boolean = 
   return variants[variant];
 };
 
-const getSizeStyles = (size: SunSize) => {
+const getSizeStyles = (size: SorbetSize) => {
   const sizeConfig = componentSizes.button[size];
   return {
     minHeight: sizeConfig.height,
@@ -189,7 +189,7 @@ const getSizeStyles = (size: SunSize) => {
   };
 };
 
-const getShapeStyles = (shape: SunShape, size: SunSize) => {
+const getShapeStyles = (shape: SorbetShape, size: SorbetSize) => {
   const sizeConfig = componentSizes.button[size];
 
   switch (shape) {
@@ -216,10 +216,10 @@ const getShapeStyles = (shape: SunShape, size: SunSize) => {
 // =============================================================================
 
 interface StyledButtonProps {
-  $variant: SunVariant;
-  $color: SunColor;
-  $size: SunSize;
-  $shape: SunShape;
+  $variant: SorbetVariant;
+  $color: SorbetColor;
+  $size: SorbetSize;
+  $shape: SorbetShape;
   $loading?: boolean;
   $active?: boolean;
   $disableElevation?: boolean;
@@ -306,7 +306,7 @@ const StyledButton = styled(MuiButton, {
   };
 });
 
-const LoadingSpinner = styled('span')<{ $size: SunSize }>(({ $size }) => ({
+const LoadingSpinner = styled('span')<{ $size: SorbetSize }>(({ $size }) => ({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',

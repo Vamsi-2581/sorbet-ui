@@ -16,7 +16,7 @@ const meta: Meta<typeof Slider> = {
     docs: {
       description: {
         component: `
-Sliders allow users to select values from a continuous or discrete range. Sun UI extends MUI Slider with 5 visual variants.
+Sliders allow users to select values from a continuous or discrete range. Sorbet UI extends MUI Slider with 5 visual variants.
 
 ## Features
 - **5 Variants**: solid, soft, outlined, ghost, plain

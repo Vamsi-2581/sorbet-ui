@@ -1,15 +1,15 @@
 {
-  "name": "@smug-ui/theme",
+  "name": "@sorbet-ui/theme",
   "version": "0.1.0",
-  "description": "Light and dark Material UI themes built from the Sun UI tokens.",
-  "homepage": "https://github.com/tahmidbintaslim/sun-ui#readme",
+  "description": "Light and dark Material UI themes built from the Sorbet UI tokens.",
+  "homepage": "https://github.com/tahmidbintaslim/sorbet-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tahmidbintaslim/sun-ui.git",
+    "url": "git+https://github.com/tahmidbintaslim/sorbet-ui.git",
     "directory": "packages/theme"
   },
   "bugs": {
-    "url": "https://github.com/tahmidbintaslim/sun-ui/issues"
+    "url": "https://github.com/tahmidbintaslim/sorbet-ui/issues"
   },
   "keywords": [
     "mui",
@@ -51,7 +51,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@smug-ui/tokens": "workspace:*"
+    "@sorbet-ui/tokens": "workspace:*"
   },
   "peerDependencies": {
     "@mui/material": "^7.3.5",

@@ -258,7 +258,7 @@ export const FullDemo: Story = {
     <Stack spacing={4}>
       <Box>
         <Typography variant="h6" gutterBottom>
-          Sun UI Checkbox
+          Sorbet UI Checkbox
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           A comprehensive checkbox with 5 variants, 7 colors, 5 sizes, indeterminate state, and full

@@ -7,18 +7,18 @@ import MuiLinearProgress, {
 } from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import type { SunColor, SunSize, SunVariant } from '@smug-ui/core';
-import { calculateProgressState, clampProgress, getProgressAriaProps } from '@smug-ui/core';
-import { colors, ColorScale, radius, transitions } from '@smug-ui/tokens';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '@sorbet-ui/core';
+import { calculateProgressState, clampProgress, getProgressAriaProps } from '@sorbet-ui/core';
+import { colors, ColorScale, radius, transitions } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type ProgressVariant = SunVariant;
-export type ProgressColor = SunColor;
-export type ProgressSize = SunSize;
+export type ProgressVariant = SorbetVariant;
+export type ProgressColor = SorbetColor;
+export type ProgressSize = SorbetSize;
 export type ProgressType = 'linear' | 'circular';
 
 interface BaseProgressProps {

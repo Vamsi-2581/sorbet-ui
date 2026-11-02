@@ -279,7 +279,7 @@ export const FullDemo: Story = {
     <Stack spacing={4}>
       <Box>
         <Typography variant="h6" gutterBottom>
-          Sun UI Badge
+          Sorbet UI Badge
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           A comprehensive badge component with 5 variants, 7 colors, 5 sizes, animated and loading

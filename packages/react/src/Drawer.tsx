@@ -5,24 +5,24 @@ import {
   DrawerProps as MuiDrawerProps,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, sizing, typography } from '@smug-ui/tokens';
+import { animations, colors, sizing, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface DrawerProps extends Omit<MuiDrawerProps, 'variant'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme (affects header accent) */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Drawer size (width for left/right, height for top/bottom) */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading overlay */
   loading?: boolean;
   /** Disable animations */
@@ -46,20 +46,20 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
   $loading?: boolean;
   $disableAnimation?: boolean;
 }
 
 const StyledDrawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) =>
-    !['sunVariant', 'sunColor', 'sunSize', '$loading', '$disableAnimation'].includes(
+    !['sorbetVariant', 'sorbetColor', 'sorbetSize', '$loading', '$disableAnimation'].includes(
       prop as string
     ),
-})<StyledProps>(({ theme, sunVariant, sunSize, $loading, $disableAnimation, anchor }) => {
-  const sizeStyles = sizeConfig[sunSize];
+})<StyledProps>(({ theme, sorbetVariant, sorbetSize, $loading, $disableAnimation, anchor }) => {
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
   const isHorizontal = anchor === 'left' || anchor === 'right';
 
@@ -130,7 +130,7 @@ const StyledDrawer = styled(MuiDrawer, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -168,9 +168,9 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
     return (
       <StyledDrawer
         ref={ref}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         $loading={loading}
         $disableAnimation={disableAnimation}
         anchor={anchor}

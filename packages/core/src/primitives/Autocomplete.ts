@@ -1,5 +1,5 @@
 /**
- * Sun UI Autocomplete Primitives
+ * Sorbet UI Autocomplete Primitives
  *
  * Headless autocomplete utilities for building accessible combobox components.
  */

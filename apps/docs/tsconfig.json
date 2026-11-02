@@ -8,9 +8,9 @@
     "module": "ES2020",
     "moduleResolution": "bundler",
     "paths": {
-      "@smug-ui/tokens": ["../../packages/tokens/src"],
-      "@smug-ui/theme": ["../../packages/theme/src"],
-      "@smug-ui/react": ["../../packages/react/src"]
+      "@sorbet-ui/tokens": ["../../packages/tokens/src"],
+      "@sorbet-ui/theme": ["../../packages/theme/src"],
+      "@sorbet-ui/react": ["../../packages/react/src"]
     }
   },
   "include": [".storybook/**/*", "src/**/*", "vite.config.ts", "vitest.config.ts"],

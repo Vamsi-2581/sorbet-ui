@@ -288,7 +288,7 @@ export const FullDemo: Story = {
     <Stack spacing={4}>
       <Box>
         <Typography variant="h6" gutterBottom>
-          Sun UI TextField
+          Sorbet UI TextField
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           A comprehensive input component with 5 variants, 7 colors, 5 sizes, loading states, icon

@@ -1,7 +1,7 @@
 /**
- * Sun UI Core
+ * Sorbet UI Core
  *
- * Core utilities, types, and presets for Sun UI components
+ * Core utilities, types, and presets for Sorbet UI components
  */
 
 // Types
@@ -18,23 +18,23 @@ export * from './primitives';
 
 // Re-export commonly used types
 export type {
-  SunA11yProps,
-  SunAnchor,
-  SunAnimationProps,
-  SunBaseProps,
-  SunButtonVariant,
-  SunColor,
-  SunComponentProps,
-  SunFormComponentProps,
-  SunFormProps,
-  SunIconProps,
-  SunInteractiveComponentProps,
-  SunInteractiveProps,
-  SunLoadingProps,
-  SunPlacement,
-  SunSize,
-  SunSizeProps,
-  SunStateProps,
-  SunVariant,
-  SunVariantProps,
+  SorbetA11yProps,
+  SorbetAnchor,
+  SorbetAnimationProps,
+  SorbetBaseProps,
+  SorbetButtonVariant,
+  SorbetColor,
+  SorbetComponentProps,
+  SorbetFormComponentProps,
+  SorbetFormProps,
+  SorbetIconProps,
+  SorbetInteractiveComponentProps,
+  SorbetInteractiveProps,
+  SorbetLoadingProps,
+  SorbetPlacement,
+  SorbetSize,
+  SorbetSizeProps,
+  SorbetStateProps,
+  SorbetVariant,
+  SorbetVariantProps,
 } from './types';

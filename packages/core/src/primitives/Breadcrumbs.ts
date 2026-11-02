@@ -1,10 +1,10 @@
 /**
- * Sun UI Core - Breadcrumbs Primitives
+ * Sorbet UI Core - Breadcrumbs Primitives
  *
  * Headless breadcrumb utilities and types for building accessible navigation breadcrumbs.
  */
 
-import type { SunColor, SunSize, SunVariant } from '../types';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '../types';
 
 // =============================================================================
 // TYPES
@@ -31,11 +31,11 @@ export interface BreadcrumbsProps {
   /** Breadcrumb items */
   items: BreadcrumbItem[];
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Maximum items to display before collapsing */
   maxItems?: number;
   /** Number of items to show before ellipsis when collapsed */

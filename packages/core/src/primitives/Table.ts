@@ -1,11 +1,11 @@
 /**
- * Sun UI Core - Table Primitives
+ * Sorbet UI Core - Table Primitives
  *
  * Headless table utilities and types for building accessible data tables.
  * These primitives can be used with any styling solution.
  */
 
-import type { SunColor, SunSize, SunVariant } from '../types';
+import type { SorbetColor, SorbetSize, SorbetVariant } from '../types';
 
 // =============================================================================
 // TYPES
@@ -67,11 +67,11 @@ export interface TableProps<T = unknown> {
   /** Column definitions */
   columns: TableColumn<T>[];
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Enable row selection */
   selectable?: boolean;
   /** Enable sorting */

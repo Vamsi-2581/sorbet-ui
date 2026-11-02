@@ -8,16 +8,16 @@ import {
   Typography,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { colors, colorScaleForMode, radius, typography } from '@smug-ui/tokens';
+import { colors, colorScaleForMode, radius, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface BreadcrumbItem {
   /** Unique identifier */
@@ -38,11 +38,11 @@ export interface BreadcrumbsProps extends Omit<MuiBreadcrumbsProps, 'separator'>
   /** Breadcrumb items */
   items: BreadcrumbItem[];
   /** Visual variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Size preset */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Maximum items to display before collapsing */
   maxItems?: number;
   /** Number of items to show before ellipsis when collapsed */
@@ -74,9 +74,9 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  $variant: SunVariant;
-  $color: SunColor;
-  $size: SunSize;
+  $variant: SorbetVariant;
+  $color: SorbetColor;
+  $size: SorbetSize;
 }
 
 const StyledBreadcrumbs = styled(MuiBreadcrumbs, {
@@ -245,7 +245,7 @@ const EllipsisButton = styled(IconButton, {
 // DEFAULT SEPARATOR
 // =============================================================================
 
-const ChevronIcon = ({ size }: { size: SunSize }) => {
+const ChevronIcon = ({ size }: { size: SorbetSize }) => {
   const iconSize = sizeConfig[size].iconSize;
   return (
     <svg

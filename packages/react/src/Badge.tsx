@@ -1,23 +1,23 @@
 import { CircularProgress, Badge as MuiBadge, BadgeProps as MuiBadgeProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { animations, colors, colorScaleForMode, typography } from '@smug-ui/tokens';
+import { animations, colors, colorScaleForMode, typography } from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface BadgeProps extends Omit<MuiBadgeProps, 'variant' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Badge size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Show loading state */
   loading?: boolean;
   /** Pulse animation for attention */
@@ -30,7 +30,7 @@ export interface BadgeProps extends Omit<MuiBadgeProps, 'variant' | 'color'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { minWidth: 14, height: 14, fontSize: 9, paddingX: 4 },
@@ -45,19 +45,19 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
   $pulse?: boolean;
   $disableAnimation?: boolean;
 }
 
 const StyledBadge = styled(MuiBadge, {
   shouldForwardProp: (prop) =>
-    !['sunVariant', 'sunColor', 'sunSize', '$pulse', '$disableAnimation'].includes(prop as string),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize, $pulse, $disableAnimation }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+    !['sorbetVariant', 'sorbetColor', 'sorbetSize', '$pulse', '$disableAnimation'].includes(prop as string),
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize, $pulse, $disableAnimation }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const isDark = theme.palette.mode === 'dark';
 
   const baseStyles = {
@@ -129,7 +129,7 @@ const StyledBadge = styled(MuiBadge, {
 
   return {
     ...baseStyles,
-    ...variantStyles[sunVariant],
+    ...variantStyles[sorbetVariant],
   };
 });
 
@@ -163,9 +163,9 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     return (
       <StyledBadge
         ref={ref}
-        sunVariant={variant}
-        sunColor={color}
-        sunSize={size}
+        sorbetVariant={variant}
+        sorbetColor={color}
+        sorbetSize={size}
         $pulse={pulse}
         $disableAnimation={disableAnimation}
         badgeContent={renderBadgeContent()}

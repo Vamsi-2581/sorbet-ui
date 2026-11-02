@@ -13,24 +13,24 @@ import {
   sizing,
   textColorsForMode,
   typography,
-} from '@smug-ui/tokens';
+} from '@sorbet-ui/tokens';
 import * as React from 'react';
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-type SunVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-type SunColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-type SunSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type SorbetVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
+type SorbetColor = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+type SorbetSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface SwitchProps extends Omit<MuiSwitchProps, 'size' | 'color'> {
   /** Visual style variant */
-  variant?: SunVariant;
+  variant?: SorbetVariant;
   /** Color scheme */
-  color?: SunColor;
+  color?: SorbetColor;
   /** Switch size */
-  size?: SunSize;
+  size?: SorbetSize;
   /** Label text */
   label?: React.ReactNode;
   /** Show loading state */
@@ -41,7 +41,7 @@ export interface SwitchProps extends Omit<MuiSwitchProps, 'size' | 'color'> {
 // STYLE UTILITIES
 // =============================================================================
 
-const getColorScale = (color: SunColor, isDark: boolean) => colorScaleForMode(color, isDark);
+const getColorScale = (color: SorbetColor, isDark: boolean) => colorScaleForMode(color, isDark);
 
 const sizeConfig = {
   xs: { width: 32, height: 18, thumb: 14, translate: 14, label: typography.fontSize.xs },
@@ -56,20 +56,20 @@ const sizeConfig = {
 // =============================================================================
 
 interface StyledProps {
-  sunVariant: SunVariant;
-  sunColor: SunColor;
-  sunSize: SunSize;
+  sorbetVariant: SorbetVariant;
+  sorbetColor: SorbetColor;
+  sorbetSize: SorbetSize;
 }
 
 const StyledSwitch = styled(MuiSwitch, {
-  shouldForwardProp: (prop) => !['sunVariant', 'sunColor', 'sunSize'].includes(prop as string),
-})<StyledProps>(({ theme, sunVariant, sunColor, sunSize }) => {
-  const colorScale = getColorScale(sunColor, theme.palette.mode === 'dark');
-  const sizeStyles = sizeConfig[sunSize];
+  shouldForwardProp: (prop) => !['sorbetVariant', 'sorbetColor', 'sorbetSize'].includes(prop as string),
+})<StyledProps>(({ theme, sorbetVariant, sorbetColor, sorbetSize }) => {
+  const colorScale = getColorScale(sorbetColor, theme.palette.mode === 'dark');
+  const sizeStyles = sizeConfig[sorbetSize];
   const padding = (sizeStyles.height - sizeStyles.thumb) / 2;
 
   const getVariantStyles = (checked: boolean) => {
-    switch (sunVariant) {
+    switch (sorbetVariant) {
       case 'solid':
         return checked
           ? { backgroundColor: colorScale.main, border: 'none' }
@@ -98,7 +98,7 @@ const StyledSwitch = styled(MuiSwitch, {
   };
 
   const getThumbColor = (checked: boolean) => {
-    if (sunVariant === 'solid') {
+    if (sorbetVariant === 'solid') {
       return checked ? '#fff' : colors.semantic.neutral[500];
     }
     return checked ? colorScale.main : colors.semantic.neutral[400];
@@ -148,11 +148,11 @@ const StyledSwitch = styled(MuiSwitch, {
   };
 });
 
-const StyledLabel = styled(FormControlLabel)<{ sunSize: SunSize }>(({ theme, sunSize }) => ({
+const StyledLabel = styled(FormControlLabel)<{ sorbetSize: SorbetSize }>(({ theme, sorbetSize }) => ({
   margin: 0,
   gap: sizing.spacing[2],
   '& .MuiFormControlLabel-label': {
-    fontSize: sizeConfig[sunSize].label,
+    fontSize: sizeConfig[sorbetSize].label,
     fontFamily: typography.fontFamily.sans,
     color: textColorsForMode(theme.palette.mode === 'dark').primary,
     '&.Mui-disabled': {
@@ -161,7 +161,7 @@ const StyledLabel = styled(FormControlLabel)<{ sunSize: SunSize }>(({ theme, sun
   },
 }));
 
-const LoadingOverlay = styled(Box)<{ sunSize: SunSize }>(({ sunSize: _sunSize }) => ({
+const LoadingOverlay = styled(Box)<{ sorbetSize: SorbetSize }>(({ sorbetSize: _sunSize }) => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -192,14 +192,14 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
       <Box sx={{ position: 'relative', display: 'inline-flex' }}>
         <StyledSwitch
           ref={ref}
-          sunVariant={variant}
-          sunColor={color}
-          sunSize={size}
+          sorbetVariant={variant}
+          sorbetColor={color}
+          sorbetSize={size}
           disabled={disabled || loading}
           {...(rest as any)}
         />
         {loading && (
-          <LoadingOverlay sunSize={size}>
+          <LoadingOverlay sorbetSize={size}>
             <CircularProgress size={loadingSize} color="inherit" />
           </LoadingOverlay>
         )}
@@ -209,7 +209,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     if (label) {
       return (
         <StyledLabel
-          sunSize={size}
+          sorbetSize={size}
           control={switchElement}
           label={label}
           disabled={disabled || loading}

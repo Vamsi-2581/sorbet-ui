@@ -297,7 +297,7 @@ export const FullDemo: Story = {
     <Stack spacing={4}>
       <Box>
         <Typography variant="h6" gutterBottom>
-          Sun UI Tooltip
+          Sorbet UI Tooltip
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           A comprehensive tooltip with 5 variants, 7 colors, 5 sizes, loading states, and
