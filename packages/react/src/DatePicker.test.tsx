@@ -1,4 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { colorScaleForMode } from '@sorbet-ui/tokens';
 import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
@@ -70,6 +72,37 @@ describe('DatePicker', () => {
       it(`renders ${color} color`, () => {
         render(<DatePicker label={`${color} color`} color={color} />);
         expect(screen.getAllByText(`${color} color`).length).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  describe.each([
+    ['light', createTheme({ palette: { mode: 'light' } }), false],
+    ['dark', createTheme({ palette: { mode: 'dark' } }), true],
+  ] as const)('%s color mode', (_mode, theme, isDark) => {
+    it('uses the color scale for the input and selected date', async () => {
+      const colorScale = colorScaleForMode('primary', isDark);
+      const { container } = render(
+        <ThemeProvider theme={theme}>
+          <DatePicker label="Date" color="primary" value={dayjs('2024-01-15')} />
+        </ThemeProvider>
+      );
+      const input = container.querySelector('.MuiPickersOutlinedInput-root');
+      expect(input).not.toBeNull();
+      const wrapperClass = container.firstElementChild?.className;
+      const wrapperStyles = Array.from(document.head.querySelectorAll('style'))
+        .map((style) => style.textContent ?? '')
+        .filter((css) => css.includes(`.${wrapperClass} .MuiPickersOutlinedInput-root`))
+        .join('');
+      expect(wrapperStyles).toContain(`border-color:${colorScale.main}`);
+
+      await userEvent.click(screen.getByRole('button'));
+      await waitFor(() => {
+        const popperStyles = Array.from(document.head.querySelectorAll('style'))
+          .map((style) => style.textContent ?? '')
+          .filter((css) => css.includes('.MuiPickersDay-root.Mui-selected'))
+          .join('');
+        expect(popperStyles).toContain(`background-color:${colorScale.main}`);
       });
     });
   });

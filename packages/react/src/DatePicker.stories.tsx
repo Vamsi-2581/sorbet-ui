@@ -27,7 +27,7 @@ and integrates with dayjs for date handling.
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'success', 'warning', 'error', 'info', 'neutral'],
+      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'neutral'],
       description: 'Color theme of the date picker',
     },
     size: {
@@ -99,7 +99,7 @@ export const AllColors: Story = {
         <Stack spacing={3} sx={{ width: 350 }}>
           <Typography variant="h6">All Colors</Typography>
           {(
-            ['primary', 'secondary', 'success', 'warning', 'error', 'info', 'neutral'] as const
+            ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'neutral'] as const
           ).map((color) => (
             <DatePicker
               key={color}

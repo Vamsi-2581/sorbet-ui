@@ -1,12 +1,13 @@
 'use client';
 
-import { styled, TextFieldProps } from '@mui/material';
+import { styled, TextFieldProps, useTheme } from '@mui/material';
 import {
   LocalizationProvider,
   DatePicker as MuiDatePicker,
   DatePickerProps as MuiDatePickerProps,
 } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { colorScaleForMode, SemanticColor } from '@sorbet-ui/tokens';
 import dayjs, { Dayjs } from 'dayjs';
 import * as React from 'react';
 
@@ -15,14 +16,7 @@ import * as React from 'react';
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type DatePickerVariant = 'solid' | 'soft' | 'outlined' | 'ghost' | 'plain';
-export type DatePickerColor =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'info'
-  | 'neutral';
+export type DatePickerColor = SemanticColor | 'error';
 export type DatePickerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 interface StyledProps {
@@ -75,13 +69,13 @@ const sizeConfig = {
 
 const getVariantStyles = (
   variant: DatePickerVariant,
-  color: DatePickerColor,
+  colorScale: ReturnType<typeof colorScaleForMode>,
   size: DatePickerSize
 ) => {
   const config = sizeConfig[size];
-  const colorValue = `var(--sun-color-${color}-500, #1976d2)`;
-  const colorLight = `var(--sun-color-${color}-100, #e3f2fd)`;
-  const colorDark = `var(--sun-color-${color}-700, #1565c0)`;
+  const colorValue = colorScale.main;
+  const colorLight = colorScale.alpha12;
+  const colorDark = colorScale.dark;
 
   const baseStyles = {
     fontSize: config.fontSize,
@@ -101,16 +95,16 @@ const getVariantStyles = (
     case 'solid':
       return {
         ...baseStyles,
-        '& .MuiOutlinedInput-root': {
+        '& .MuiPickersOutlinedInput-root': {
           backgroundColor: colorValue,
           color: '#fff',
-          '& fieldset': {
+          '& .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
-          '&:hover fieldset': {
+          '&:hover .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorDark,
           },
-          '&.Mui-focused fieldset': {
+          '&.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorDark,
           },
           '& .MuiSvgIcon-root': {
@@ -131,22 +125,22 @@ const getVariantStyles = (
     case 'soft':
       return {
         ...baseStyles,
-        '& .MuiOutlinedInput-root': {
+        '& .MuiPickersOutlinedInput-root': {
           backgroundColor: colorLight,
-          '& fieldset': {
+          '& .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: 'transparent',
           },
           '&:hover': {
             backgroundColor: colorLight,
             filter: 'brightness(0.95)',
           },
-          '&:hover fieldset': {
+          '&:hover .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
           '&.Mui-focused': {
             backgroundColor: colorLight,
           },
-          '&.Mui-focused fieldset': {
+          '&.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
         },
@@ -155,14 +149,14 @@ const getVariantStyles = (
     case 'outlined':
       return {
         ...baseStyles,
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
+        '& .MuiPickersOutlinedInput-root': {
+          '& .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
-          '&:hover fieldset': {
+          '&:hover .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorDark,
           },
-          '&.Mui-focused fieldset': {
+          '&.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
         },
@@ -171,20 +165,20 @@ const getVariantStyles = (
     case 'ghost':
       return {
         ...baseStyles,
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
+        '& .MuiPickersOutlinedInput-root': {
+          '& .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: 'transparent',
           },
           '&:hover': {
-            backgroundColor: `var(--sun-color-${color}-50, rgba(25, 118, 210, 0.08))`,
+            backgroundColor: colorScale.alpha8,
           },
-          '&:hover fieldset': {
+          '&:hover .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: 'transparent',
           },
           '&.Mui-focused': {
-            backgroundColor: `var(--sun-color-${color}-100, rgba(25, 118, 210, 0.12))`,
+            backgroundColor: colorScale.alpha12,
           },
-          '&.Mui-focused fieldset': {
+          '&.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
             borderColor: colorValue,
           },
         },
@@ -193,14 +187,14 @@ const getVariantStyles = (
     case 'plain':
       return {
         ...baseStyles,
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
+        '& .MuiPickersOutlinedInput-root': {
+          '& .MuiPickersOutlinedInput-notchedOutline': {
             border: 'none',
           },
-          '&:hover fieldset': {
+          '&:hover .MuiPickersOutlinedInput-notchedOutline': {
             border: 'none',
           },
-          '&.Mui-focused fieldset': {
+          '&.Mui-focused .MuiPickersOutlinedInput-notchedOutline': {
             border: 'none',
             boxShadow: `0 1px 0 0 ${colorValue}`,
           },
@@ -219,9 +213,11 @@ const getVariantStyles = (
 const DatePickerWrapper = styled('div', {
   shouldForwardProp: (prop) =>
     !['$variant', '$color', '$size', '$fullWidth'].includes(prop as string),
-})<StyledProps>(({ $variant, $color, $size, $fullWidth }) => {
-  const variantStyles = getVariantStyles($variant, $color, $size) as Record<string, unknown>;
-  const inputRootStyles = (variantStyles['& .MuiOutlinedInput-root'] ?? {}) as Record<
+})<StyledProps>(({ theme, $variant, $color, $size, $fullWidth }) => {
+  const semanticColor = $color === 'error' ? 'danger' : $color;
+  const colorScale = colorScaleForMode(semanticColor, theme.palette.mode === 'dark');
+  const variantStyles = getVariantStyles($variant, colorScale, $size) as Record<string, unknown>;
+  const inputRootStyles = (variantStyles['& .MuiPickersOutlinedInput-root'] ?? {}) as Record<
     string,
     unknown
   >;
@@ -230,7 +226,7 @@ const DatePickerWrapper = styled('div', {
     width: $fullWidth ? '100%' : 'auto',
     display: 'inline-flex',
     ...variantStyles,
-    '& .MuiOutlinedInput-root': {
+    '& .MuiPickersOutlinedInput-root': {
       borderRadius: 'var(--sun-radius-md, 8px)',
       transition: 'var(--sun-transition-normal, all 0.2s ease)',
       ...inputRootStyles,
@@ -277,6 +273,7 @@ export interface SorbetDatePickerProps extends Omit<MuiDatePickerProps, 'renderI
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const DatePicker = React.forwardRef<HTMLDivElement, SorbetDatePickerProps>((props, ref) => {
+  const theme = useTheme();
   const {
     variant = 'outlined',
     color = 'primary',
@@ -293,6 +290,8 @@ export const DatePicker = React.forwardRef<HTMLDivElement, SorbetDatePickerProps
     onChange,
     ...rest
   } = props;
+  const semanticColor = color === 'error' ? 'danger' : color;
+  const colorScale = colorScaleForMode(semanticColor, theme.palette.mode === 'dark');
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -328,16 +327,16 @@ export const DatePicker = React.forwardRef<HTMLDivElement, SorbetDatePickerProps
                 '& .MuiPickersDay-root': {
                   borderRadius: 'var(--sun-radius-full, 9999px)',
                   '&.Mui-selected': {
-                    backgroundColor: `var(--sun-color-${color}-500, #1976d2)`,
+                    backgroundColor: colorScale.main,
                   },
                   '&:hover': {
-                    backgroundColor: `var(--sun-color-${color}-100, #e3f2fd)`,
+                    backgroundColor: colorScale.alpha12,
                   },
                 },
                 '& .MuiPickersYear-yearButton, & .MuiPickersMonth-monthButton': {
                   borderRadius: 'var(--sun-radius-md, 8px)',
                   '&.Mui-selected': {
-                    backgroundColor: `var(--sun-color-${color}-500, #1976d2)`,
+                    backgroundColor: colorScale.main,
                   },
                 },
               },
